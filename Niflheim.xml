@@ -1,0 +1,259 @@
+?xml version="1.0"?>
+<map proto="1.0">
+<name>Niflheim</name>
+<version>1.0.4</version>
+<objective>Take the opponent's wools and place them on your victory monument!</objective>
+<gamemode>ctw</gamemode>
+<created>2021-06-08</created>
+<authors>
+    <author uuid="93a2f790-e430-4742-94ac-e513660bef37"/> <!--  adenines  -->
+    <author uuid="787c2738-70ba-4bfc-8faf-70ae9d87e5b9"/> <!--  uracils  -->
+</authors>
+<teams>
+    <team id="purple-team" color="purple" max="30">Purple</team>
+    <team id="blue-team" color="light_blue" max="30">Blue</team>
+</teams>
+<kits>
+    <kit id="spawn-kit">
+        <clear/>
+        <item slot="0" material="iron sword" unbreakable="true"/>
+        <item slot="1" material="bow" enchantment="arrow infinite" unbreakable="true"/>
+        <item slot="2" material="iron pickaxe" enchantment="dig speed:1" unbreakable="true"/>
+        <item slot="3" material="iron axe" enchantment="dig speed:1" unbreakable="true"/>
+        <item slot="4" material="bucket" damage="5" amount="1"/>
+        <item slot="5" material="birch log" damage="5" amount="64"/>
+        <item slot="7" material="golden apple" amount="1"/>
+        <item slot="8" material="golden carrot" amount="64"/>
+        <item slot="28" material="arrow" amount="1"/>
+        <item slot="30" material="iron spade" enchantment="dig speed" unbreakable="true"/>
+        <effect duration="oo" amplifier="100">damage resistance</effect>
+        <effect duration="oo" amplifier="1">night_vision</effect>
+    </kit>
+    <kit force="true" id="reset-resitance-kit">
+        <effect duration="0" amplifier="0">damage resistance</effect>
+    </kit>
+    <kit id="purple-kit" parents="spawn-kit">
+        <chestplate color="8D4BBA" unbreakable="true">leather chestplate</chestplate>
+            <enchantment level="2">projectile_protection</enchantment>
+        <boots color="8D4BBA" unbreakable="true">leather boots</boots>
+            <enchantment level="2">projectile_protection</enchantment>
+    </kit>
+    <kit id="blue-kit" parents="spawn-kit">
+        <chestplate color="1B3DB6" unbreakable="true">leather chestplate</chestplate>
+            <enchantment level="2">projectile_protection</enchantment>
+        <boots color="1B3DB6" unbreakable="true">leather boots</boots>
+             <enchantment level="2">projectile_protection</enchantment>
+    </kit>
+</kits>
+<spawns>
+    <spawn team="purple-team" kit="purple-kit" yaw="-90">
+        <region>
+            <cylinder base="-217.5,39,0.5" radius="1.5" height="0"/>
+        </region>
+    </spawn>
+    <spawn team="blue-team" kit="blue-kit" yaw="90">
+        <region>
+            <cylinder base="162.5,39,0.5" radius="1.5" height="0"/>
+        </region>
+    </spawn>
+    <default>
+        <region>
+            <cylinder base="27.5,59,61.5" radius="1.5" height="0" yaw="180"/>
+        </region>
+    </default>
+</spawns>
+<wools craftable="false">
+    <wools team="purple-team">
+    <wool color="green" location="127.5,22.-35.5">
+        <monument><block>-209.5,41,-2.5</block></monument>
+    </wool>
+    <wool color="cyan" location="127.5,22,36.5">
+        <monument><block>-209.5,41,3.5</block></monument>
+    </wool>
+    
+    <wools team="blue-team">
+    <wool color="magenta" location="-182.5,22,36.5">
+        <monument><block>154.5,41,3.5</block></monument>
+    </wool>
+    <wool color="pink" location="-182.5,22,-35.5">
+        <monument><block>154.5,41,-2.5</block></monument>
+    </wool>
+
+    <wool team="purple-team" color="green" monument="green-wool-monument-region" location="50,16,68" id="light-blue-wool"/>
+    <wool team="purple-team" color="cyan" monument="cyan-wool-monument-region" location="115,32,163" id="cyan-wool"/>
+    <wool team="lime-team" color="purple" monument="purple-wool-monument-region" location="179,16,411" id="purple-wool"/>
+    <wool team="lime-team" color="magenta" monument="magenta-wool-monument-region" location="114,32,316" id="magneta-wool"/>
+    <wool team="lime-team" color="pink" monument="pink-wool-monument-region" location="50,16,411" id="pink-wool"/>
+</wools>
+<filters>
+    <team id="only-purple">purple-team</team>
+    <team id="only-blue">blue-team</team>
+    <not id="not-void">
+        <void/>
+    </not>
+    <deny id="deny-void-and-web">
+        <all>
+            <void/>
+            <material>web</material>
+        </all>
+    </deny>
+    <all id="purple-woolroom-filter">
+        <team>purple-team</team>
+        <material>web</material>   
+        <material>stained glass</material>
+    </all>
+    <all id="blue-woolroom-filter">
+        <team>blue-team</team>
+        <material>web</material>
+        <material>stained glass</material>
+    </all>
+    <material id="only-iron">iron block</material>
+    <material id="only-air">air</material>
+</filters>
+        
+<regions>
+    <rectangle id="purple-destination-out" min="-141,18,-1" max="-141,18,2"/>
+    <cylinder id="purple-destination-spawn" base="-217.5,39,0.5" radius="1.5" height="0"/>
+    <rectangle id="blue-destination-out" min="86,18,2" max="86,18,-1"/>
+    <cylinder id="blue-destination-spawn" base="162.5,39,0.5" radius="1.5" height="0"/>
+    
+    <!-- player spawns -->
+    <negative id="not-spawns">
+        <union id="spawns">
+            <cuboid id="purple-spawn" min="-205,0,12" max="-230,50,-12"/>
+            <cuboid id="blue-spawn" min="150,0,-12" max="175,50,12"/>
+        </union>
+    </negative>
+    <apply enter="only-purple" region="purple-spawn" message="You cannot enter the enemy's spawn!"/>
+    <apply enter="only-blue" region="blue-spawn" message="You cannot enter the enemy's spawn!"/>
+
+    <apply block-break="never" message="You may only break iron in spawn!>
+        <complement id="spawns">
+            <material>iron block</material>	
+        </complement>
+    </apply>
+    <apply block="never" region="spawns" message="You may only break iron in spawn!"/>    
+    
+    <!-- portal spawn -->
+    <union id="portal-spawns">
+        <cuboid id="purple-portal" min="-140,18,4" max="-147,24,-3"/>
+        <cuboid id="purple-portal" min="85,18,-3" max="92,24,4"/> 
+    </union>
+    <apply enter="only-purple" message="You cannot enter your enemy's portal!"/>
+    <apply enter="only-purple" message="You cannot enter your enemy's portal!"/>
+                                        
+    <!-- woolrooms -->
+    <union id="woolrooms">
+        <union id="purples-woolrooms">
+            <cylinder base="129,0,-37" radius="9.5" height="oo" id="green-woolroom"/>
+            <cylinder base="129,0,38" radius="9.5" height="oo" id="cyan-woolroom"/>
+        </union>
+        <union id="blues-woolrooms">
+            <cylinder base="-184,0,38" radius="9.5" height="oo" id="magenta-woolroom"/>
+            <cylinder base="-184,0,-37" radius="9.5" height="oo" id="pink-woolroom"/>
+        </union>
+    </union>
+    <rectangle id="allow-build" min="141,49" max="-196,-48"/>
+    </union>
+    <apply enter="only-purple" region="purples-woolrooms" message="You cannot enter your own wool room!"/>
+    <apply enter="only-blue" region="blues-woolrooms" message="You cannot enter your own wool room!"/>
+    <apply block-break="purple-woolroom-filter" block-place="never" region="purples-woolrooms" message="You may not edit the wool room!"/>
+    <apply block-break="orange-woolroom-filter" block-place="never" region="limes-woolrooms" message="You may not edit the wool room!"/>
+   
+    <!-- build -->
+    <apply block-place="not-void" block-break="deny-void-and-web" region="everywhere" message="You may not edit the void!"/>
+  
+ 
+    
+    <!-- applicators -->
+    <apply block="always" region="allow-build"/>
+    
+    
+    
+   
+    <apply kit="reset-resitance-kit" region="not-spawns"/>
+    
+</regions>
+<portals>
+    <portal> <!--purple portal to outside-->
+        <region>
+            <cuboid min="-208,39,-1" max="-208,43,2"/></region>
+        <destination>
+            <region id="purple-destination-out"/></destination>
+    </portal>
+    <portal> <!--purple portal to spawn-->
+        <region>
+            <cuboid min="-143,18,2" max="-143,22,-1"/></region>
+        <destination>
+            <region id="purple-destination-spawn"/></destination>
+    </portal>            
+    <portal> <!--blue portal to outside-->
+        <region>
+            <cuboid min="-153,39,2" max="153,43,-1"/></region>
+        <destination>
+            <region id="blue-destination-out"/></destination>
+    </portal>
+    <portal> <!--blue portal to spawn-->
+        <region>
+            <cuboid min="88,18,-1" max="88,22,2"/></region>
+        <destination>
+            <region id="blue-destination-spawn"/></destination>
+        
+</portals>
+<respawn delay="3s" blackout="true"/>
+<renewables>
+    <renewable rate="3" sound="true" region="everywhere" renew-filter="only-iron" replace-filter="only-air" avoid-players="2"/>
+</renewables>
+<itemkeep>
+    <item>iron sword</item>
+    <item>bow</item>
+    <item>iron pickaxe</item>
+    <item>iron axe</item>
+    <item>birch log</item>
+    <item>stained glass</item>
+    <item>golden carrot</item>
+    <item>arrow</item>
+</itemkeep>
+<itemremove>
+    <item>leather boots</item>
+    <item>leather chestplate</item>
+    <!-- ad lib -->
+    <item>double plant</item>
+    <item>dirt</item>
+    <item>stained clay</item>
+    <item>chiseled stone brick</item>
+    <item>slab</item>
+    <item>primsarine</item>
+    <item>dark prismarine</item>
+    <item>prismarine bricks</item>
+</itemremove>
+<toolrepair>
+    <tool>iron sword</tool>
+    <tool>bow</tool>
+    <tool>iron pickaxe</tool>
+    <tool>iron axe</tool>
+</toolrepair>
+<item-mods>
+    <rule>
+        <match>
+            <material>diamond helmet</material>
+            <material>diamond boots</material>
+            <material>iron sword</material>
+            <material>bow</material>
+            <material>shears</material>
+            <material>iron helmet</material>
+            <material>iron chestplate</material>
+            <material>iron leggings</material>
+            <material>iron boots</material>
+        </match>
+        <modify unbreakable="true">
+        </modify>
+    </rule>
+</item-mods>
+<maxbuildheight>50</maxbuildheight>
+<kill-rewards>
+    <kill-reward>
+        <item material="golden apple" amount="1"/>
+    </kill-reward>
+</kill-rewards>
+</map>
