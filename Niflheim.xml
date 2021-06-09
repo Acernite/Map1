@@ -39,9 +39,9 @@
             <enchantment level="2">projectile_protection</enchantment>
     </kit>
     <kit id="blue-kit" parents="spawn-kit">
-        <chestplate color="1B3DB6" unbreakable="true">leather chestplate</chestplate>
+        <chestplate color="3CA2D4" unbreakable="true">leather chestplate</chestplate>
             <enchantment level="2">projectile_protection</enchantment>
-        <boots color="1B3DB6" unbreakable="true">leather boots</boots>
+        <boots color="3CA2D4" unbreakable="true">leather boots</boots>
              <enchantment level="2">projectile_protection</enchantment>
     </kit>
 </kits>
@@ -88,15 +88,9 @@
 <filters>
     <team id="only-purple">purple-team</team>
     <team id="only-blue">blue-team</team>
-    <not id="not-void">
+    <deny id="deny-team-void">
         <void/>
-    </not>
-    <deny id="deny-void-and-web">
-        <all>
-            <void/>
-            <material>web</material>
-        </all>
-    </deny>
+    </deny> 
     <all id="purple-woolroom-filter">
         <team>purple-team</team>
         <material>web</material>   
@@ -112,10 +106,12 @@
 </filters>
         
 <regions>
-    <rectangle id="purple-destination-out" min="-141,18,-1" max="-141,18,2"/>
-    <cylinder id="purple-destination-spawn" base="-217.5,39,0.5" radius="1.5" height="0"/>
-    <rectangle id="blue-destination-out" min="86,18,2" max="86,18,-1"/>
-    <cylinder id="blue-destination-spawn" base="162.5,39,0.5" radius="1.5" height="0"/>
+    <!-- build areas -->
+    <rectangle id="purple-island" min="-200,54" max="-90,-54" message="You may not edit the void!"/> <!-- purple's island -->
+    <rectangle id="blue-island" min="35,-54" max="145,54"message="You may not edit the void!"/> <!-- blue's island -->
+    <apply block="deny-team-void"/>
+    <rectangle id="middle-islands" min="-90,35" max="35,-34" message="You may not edit the void!"/> <!-- mid islands -->
+    <apply block="always"/>
     
     <!-- player spawns -->
     <negative id="not-spawns">
@@ -124,9 +120,11 @@
             <cuboid id="blue-spawn" min="150,0,-12" max="175,50,12"/>
         </union>
     </negative>
-    <apply enter="only-purple" region="purple-spawn" message="You cannot enter the enemy's spawn!"/>
-    <apply enter="only-blue" region="blue-spawn" message="You cannot enter the enemy's spawn!"/>
-
+    <apply enter="only-purple" region="purple-spawn" message="You cannot approach the enemy's spawn island!"/>
+    <apply enter="only-blue" region="blue-spawn" message="You cannot approach the enemy's spawn island!"/>
+    <apply kit="reset-resitance-kit" region="not-spawns"/>
+    
+    <!-- iron in spawn -->
     <apply block-break="never" message="You may only break iron in spawn!>
         <complement id="spawns">
             <material>iron block</material>	
@@ -134,7 +132,11 @@
     </apply>
     <apply block="never" region="spawns" message="You may only break iron in spawn!"/>    
     
-    <!-- portal spawn -->
+    <!-- portal spawns -->
+    <rectangle id="purple-destination-out" min="-141,18,-1" max="-141,18,2"/>
+    <cylinder id="purple-destination-spawn" base="-217.5,39,0.5" radius="1.5" height="0"/>
+    <rectangle id="blue-destination-out" min="86,18,2" max="86,18,-1"/>
+    <cylinder id="blue-destination-spawn" base="162.5,39,0.5" radius="1.5" height="0"/>                                                                                
     <union id="portal-spawns">
         <cuboid id="purple-portal" min="-140,18,4" max="-147,24,-3"/>
         <cuboid id="purple-portal" min="85,18,-3" max="92,24,4"/> 
@@ -158,16 +160,9 @@
     <apply enter="only-purple" region="purples-woolrooms" message="You cannot enter your own wool room!"/>
     <apply enter="only-blue" region="blues-woolrooms" message="You cannot enter your own wool room!"/>
     <apply block-break="purple-woolroom-filter" block-place="never" region="purples-woolrooms" message="You may not edit the wool room!"/>
-    <apply block-break="orange-woolroom-filter" block-place="never" region="limes-woolrooms" message="You may not edit the wool room!"/>
-   
-    <!-- build -->
-    <apply block-place="not-void" block-break="deny-void-and-web" region="everywhere" message="You may not edit the void!"/>
-
-    <!-- applicators -->
-    <apply block="always" region="allow-build"/>
-    <apply kit="reset-resitance-kit" region="not-spawns"/>
-    
+    <apply block-break="orange-woolroom-filter" block-place="never" region="limes-woolrooms" message="You may not edit the wool room!"/> 
 </regions>
+                                                                                                                                      
 <portals>
     <portal> <!--purple portal to outside-->
         <region>
@@ -191,10 +186,11 @@
         <region>
             <cuboid min="88,18,-1" max="88,22,2"/></region>
         <destination>
-            <region id="blue-destination-spawn"/></destination>
-        
+            <region id="blue-destination-spawn"/></destination>        
 </portals>
+
 <respawn delay="3s" blackout="true"/>
+
 <renewables>
     <renewable rate="3" sound="true" region="everywhere" renew-filter="only-iron" replace-filter="only-air" avoid-players="2"/>
 </renewables>
