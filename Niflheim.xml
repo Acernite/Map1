@@ -162,15 +162,9 @@
    
     <!-- build -->
     <apply block-place="not-void" block-break="deny-void-and-web" region="everywhere" message="You may not edit the void!"/>
-  
- 
-    
+
     <!-- applicators -->
     <apply block="always" region="allow-build"/>
-    
-    
-    
-   
     <apply kit="reset-resitance-kit" region="not-spawns"/>
     
 </regions>
@@ -217,9 +211,7 @@
 <itemremove>
     <item>leather boots</item>
     <item>leather chestplate</item>
-    <!-- ad lib -->
     <item>double plant</item>
-    <item>dirt</item>
     <item>stained clay</item>
     <item>chiseled stone brick</item>
     <item>slab</item>
