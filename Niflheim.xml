@@ -1,4 +1,4 @@
-?xml version="1.0"?>
+<?xml version="1.0"?>
 <map proto="1.0">
 <name>Niflheim</name>
 <version>1.0.4</version>
@@ -63,20 +63,22 @@
     </default>
 </spawns>
 <wools craftable="false">
-    <wools team="purple-team">
+    <wool team="purple-team">
     <wool color="green" location="127.5,22.-35.5">
         <monument><block>-209.5,41,-2.5</block></monument>
     </wool>
     <wool color="cyan" location="127.5,22,36.5">
         <monument><block>-209.5,41,3.5</block></monument>
     </wool>
-    
-    <wools team="blue-team">
+    </wool>
+        
+    <wool team="blue-team">
     <wool color="magenta" location="-182.5,22,36.5">
         <monument><block>154.5,41,3.5</block></monument>
     </wool>
     <wool color="pink" location="-182.5,22,-35.5">
         <monument><block>154.5,41,-2.5</block></monument>
+    </wool>
     </wool>
 
     <wool team="purple-team" color="green" monument="green-wool-monument-region" location="50,16,68" id="light-blue-wool"/>
@@ -108,7 +110,7 @@
 <regions>
     <!-- build areas -->
     <rectangle id="purple-island" min="-200,54" max="-90,-54" message="You may not edit the void!"/> <!-- purple's island -->
-    <rectangle id="blue-island" min="35,-54" max="145,54"message="You may not edit the void!"/> <!-- blue's island -->
+    <rectangle id="blue-island" min="35,-54" max="145,54" message="You may not edit the void!"/> <!-- blue's island -->
     <apply block="deny-team-void"/>
     <rectangle id="middle-islands" min="-90,35" max="35,-34" message="You may not edit the void!"/> <!-- mid islands -->
     <apply block="always"/>
@@ -125,7 +127,7 @@
     <apply kit="reset-resitance-kit" region="not-spawns"/>
     
     <!-- iron in spawn -->
-    <apply block-break="never" message="You may only break iron in spawn!>
+    <apply block-break="never" message="You may only break iron in spawn!">
         <complement id="spawns">
             <material>iron block</material>	
         </complement>
@@ -156,7 +158,6 @@
         </union>
     </union>
     <rectangle id="allow-build" min="141,49" max="-196,-48"/>
-    </union>
     <apply enter="only-purple" region="purples-woolrooms" message="You cannot enter your own wool room!"/>
     <apply enter="only-blue" region="blues-woolrooms" message="You cannot enter your own wool room!"/>
     <apply block-break="purple-woolroom-filter" block-place="never" region="purples-woolrooms" message="You may not edit the wool room!"/>
@@ -186,7 +187,9 @@
         <region>
             <cuboid min="88,18,-1" max="88,22,2"/></region>
         <destination>
-            <region id="blue-destination-spawn"/></destination>        
+            <region id="blue-destination-spawn"/>
+        </destination>      
+    </portal>
 </portals>
 
 <respawn delay="3s" blackout="true"/>
