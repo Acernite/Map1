@@ -62,6 +62,7 @@
         </region>
     </default>
 </spawns>
+    
 <wools craftable="false">
     <wool team="purple-team">
     <wool color="green" location="127.5,22.-35.5">
@@ -81,11 +82,6 @@
     </wool>
     </wool>
 
-    <wool team="purple-team" color="green" monument="green-wool-monument-region" location="50,16,68" id="light-blue-wool"/>
-    <wool team="purple-team" color="cyan" monument="cyan-wool-monument-region" location="115,32,163" id="cyan-wool"/>
-    <wool team="lime-team" color="purple" monument="purple-wool-monument-region" location="179,16,411" id="purple-wool"/>
-    <wool team="lime-team" color="magenta" monument="magenta-wool-monument-region" location="114,32,316" id="magneta-wool"/>
-    <wool team="lime-team" color="pink" monument="pink-wool-monument-region" location="50,16,411" id="pink-wool"/>
 </wools>
 <filters>
     <team id="only-purple">purple-team</team>
