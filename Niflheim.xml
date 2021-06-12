@@ -17,31 +17,37 @@
     <kit id="spawn-kit">
         <clear/>
         <item slot="0" material="iron sword" unbreakable="true"/>
-        <item slot="1" material="bow" enchantment="arrow infinite" unbreakable="true"/>
-        <item slot="2" material="iron pickaxe" enchantment="dig speed:1" unbreakable="true"/>
-        <item slot="3" material="iron axe" enchantment="dig speed:1" unbreakable="true"/>
-        <item slot="4" material="bucket" damage="5" amount="1"/>
-        <item slot="5" material="birch log" damage="5" amount="64"/>
+        <item slot="1" material="bow" unbreakable="true"> 
+              <enchantment level="1">arrow_infinite"</enchantment>
+        </item>
+        <item slot="2" material="iron pickaxe" unbreakable="true">
+            <enchantment level="1">dig_speed</enchantment>
+        </item>
+        <item slot="3" material="iron axe" unbreakable="true">
+            <enchantment level="1">dig_speed"</enchantment>
+        </item>
+        <item slot="4" material="bucket" amount="1"/>
+        <item slot="5" material="log" damage="2" amount="64"/>
         <item slot="7" material="golden apple" amount="1"/>
         <item slot="8" material="golden carrot" amount="64"/>
         <item slot="28" material="arrow" amount="1"/>
-        <item slot="30" material="iron spade" enchantment="dig speed" unbreakable="true"/>
-        <effect duration="oo" amplifier="100">damage resistance</effect>
+        <item slot="30" material="iron spade"/>
+        <effect duration="oo" amplifier="100">resistance</effect>
         <effect duration="oo" amplifier="1">night_vision</effect>
     </kit>
     <kit force="true" id="reset-resitance-kit">
         <effect duration="0" amplifier="0">damage resistance</effect>
     </kit>
     <kit id="purple-kit" parents="spawn-kit">
-        <chestplate color="8D4BBA" unbreakable="true">leather chestplate</chestplate>
+        <chestplate color="7F3FB2" unbreakable="true">leather chestplate</chestplate>
             <enchantment level="2">projectile_protection</enchantment>
-        <boots color="8D4BBA" unbreakable="true">leather boots</boots>
+        <boots color="7F3FB2" unbreakable="true">leather boots</boots>
             <enchantment level="2">projectile_protection</enchantment>
     </kit>
     <kit id="blue-kit" parents="spawn-kit">
-        <chestplate color="3CA2D4" unbreakable="true">leather chestplate</chestplate>
+        <chestplate color="4C7F994" unbreakable="true">leather chestplate</chestplate>
             <enchantment level="2">projectile_protection</enchantment>
-        <boots color="3CA2D4" unbreakable="true">leather boots</boots>
+        <boots color="4C7F99" unbreakable="true">leather boots</boots>
              <enchantment level="2">projectile_protection</enchantment>
     </kit>
 </kits>
@@ -56,33 +62,28 @@
             <cylinder base="162.5,39,0.5" radius="1.5" height="0"/>
         </region>
     </spawn>
-    <default>
+    <default yaw="180">
         <region>
-            <cylinder base="27.5,59,61.5" radius="1.5" height="0" yaw="180"/>
+            <cylinder base="27.5,59,61.5" radius="1.5" height="0"/>
         </region>
     </default>
 </spawns>
     
 <wools craftable="false">
-    <wool team="purple-team">
-    <wool color="green" location="127.5,22.-35.5">
+    <wool team="purple-team" color="green" location="127.5,22.-35.5">
         <monument><block>-209.5,41,-2.5</block></monument>
     </wool>
-    <wool color="cyan" location="127.5,22,36.5">
+    <wool team="purple-team" color="cyan" location="127.5,22,36.5">
         <monument><block>-209.5,41,3.5</block></monument>
-    </wool>
-    </wool>
-        
-    <wool team="blue-team">
-    <wool color="magenta" location="-182.5,22,36.5">
+    </wool>   
+    <wool team="blue-team" color="magenta" location="-182.5,22,36.5">
         <monument><block>154.5,41,3.5</block></monument>
-    </wool>
-    <wool color="pink" location="-182.5,22,-35.5">
+    </wool>                          
+    <wool team="blue-team" color="pink" location="-182.5,22,-35.5">
         <monument><block>154.5,41,-2.5</block></monument>
     </wool>
-    </wool>
-
 </wools>
+    
 <filters>
     <team id="only-purple">purple-team</team>
     <team id="only-blue">blue-team</team>
@@ -131,9 +132,9 @@
     <apply block="never" region="spawns" message="You may only break iron in spawn!"/>    
     
     <!-- portal spawns -->
-    <rectangle id="purple-destination-out" min="-141,18,-1" max="-141,18,2"/>
+    <cuboid id="purple-destination-out" min="-141,18,-1" max="-141,18,2"/>
     <cylinder id="purple-destination-spawn" base="-217.5,39,0.5" radius="1.5" height="0"/>
-    <rectangle id="blue-destination-out" min="86,18,2" max="86,18,-1"/>
+    <cuboid id="blue-destination-out" min="86,18,2" max="86,18,-1"/>
     <cylinder id="blue-destination-spawn" base="162.5,39,0.5" radius="1.5" height="0"/>                                                                                
     <union id="portal-spawns">
         <cuboid id="purple-portal" min="-140,18,4" max="-147,24,-3"/>
