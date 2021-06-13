@@ -90,16 +90,16 @@
     <deny id="deny-team-void">
         <void/>
     </deny> 
-    <all id="purple-woolroom-filter">
+    <any id="purple-woolroom-filter">
         <team>purple-team</team>
         <material>web</material>   
         <material>stained glass</material>
-    </all>
-    <all id="blue-woolroom-filter">
+    </any>
+    <any id="blue-woolroom-filter">
         <team>blue-team</team>
         <material>web</material>
         <material>stained glass</material>
-    </all>
+    </any>
     <material id="only-iron">iron block</material>
     <material id="only-air">air</material>
 </filters>
@@ -107,8 +107,8 @@
 <regions>
     <!-- build areas -->
     <rectangle id="purple-island" min="-200,54" max="-90,-54" <!-- purple's island -->
-    <rectangle id="blue-island" min="35,-54" max="145,54" message="You may not edit the void!"/> <!-- blue's island -->
-    <rectangle id="middle-islands" min="-90,35" max="35,-34" message="You may not edit the void!"/> <!-- mid islands -->
+    <rectangle id="blue-island" min="35,-54" max="145,54" <!-- blue's island -->
+    <rectangle id="middle-islands" min="-90,35" max="35,-34"  <!-- mid islands -->
     
     <!-- player spawns -->
     <negative id="not-spawns">
@@ -152,8 +152,8 @@
     <apply block="deny-team-void" region="purple-island" message="You may not edit the void!"/>
     <apply block="deny-team-void" region="blue-island" message="You may not edit the void!"/>
     <apply block="always" region="middle-islands"/>
-    <apply enter="only-purple" region="purple-destination-out" message="You cannot enter your enemy's portal!"/>
-    <apply enter="only-blue" region="blue-destination-out" message="You cannot enter your enemy's portal!"/>
+    <apply enter="only-purple" region="purple-destination-out" message="You cannot enter Purple's portal!"/>
+    <apply enter="only-blue" region="blue-destination-out" message="You cannot enter Blue's portal!"/>
     <apply block-break="only-iron" region="spawns" message="You can only break iron in your spawn!"/>
 </regions>
                                                                                                                                       
