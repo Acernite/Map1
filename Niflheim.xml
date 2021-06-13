@@ -95,12 +95,14 @@
     <any id="purple-woolroom-filter">
         <team>purple-team</team>
         <material>web</material>   
-        <material>stained glass</material>
+        <material>stained_glass:13</material>
+        <material>stained_glass:9</material>
     </any>
     <any id="blue-woolroom-filter">
         <team>blue-team</team>
         <material>web</material>
-        <material>stained glass</material>
+        <material>stained_glass:6</material>
+        <material>stained_glass:2</material>
     </any>
     <material id="only-iron">iron block</material>
     <material id="only-air">air</material>
