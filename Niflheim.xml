@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <map proto="1.0">
 <name>Niflheim</name>
-<version>1.0.4</version>
+<version>1.0.0</version>
 <objective>Take the opponent's wools and place them on your victory monument!</objective>
 <gamemode>ctw</gamemode>
 <created>2021-06-08</created>
