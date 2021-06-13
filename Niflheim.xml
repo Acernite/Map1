@@ -39,15 +39,17 @@
         <effect duration="0" amplifier="0">damage resistance</effect>
     </kit>
     <kit id="purple-kit" parents="spawn-kit">
+        <item slot="5" material="stained_glass" damage="10" amount="64"/>
         <chestplate color="7F3FB2" unbreakable="true">leather chestplate</chestplate>
             <enchantment level="2">projectile_protection</enchantment>
         <boots color="7F3FB2" unbreakable="true">leather boots</boots>
             <enchantment level="2">projectile_protection</enchantment>
     </kit>
     <kit id="blue-kit" parents="spawn-kit">
-        <chestplate color="4C7F994" unbreakable="true">leather chestplate</chestplate>
+        <item slot="5" material="stained_glass" damage="3" amount="64"/>
+        <chestplate color="6699D8" unbreakable="true">leather chestplate</chestplate>
             <enchantment level="2">projectile_protection</enchantment>
-        <boots color="4C7F99" unbreakable="true">leather boots</boots>
+        <boots color="6699D8" unbreakable="true">leather boots</boots>
              <enchantment level="2">projectile_protection</enchantment>
     </kit>
 </kits>
@@ -144,8 +146,9 @@
     <!-- applicators -->
     <apply enter="only-purple" region="purples-woolrooms" message="You cannot enter your own wool room!"/>
     <apply enter="only-blue" region="blues-woolrooms" message="You cannot enter your own wool room!"/>
-    <apply block-break="purple-woolroom-filter" block-place="never" region="purples-woolrooms" message="You may not edit the wool room!"/>
-    <apply block-break="orange-woolroom-filter" block-place="never" region="limes-woolrooms" message="You may not edit the wool room!"/>
+    <apply block-break="purple-woolroom-filter" region="purples-woolrooms" message="You can only break webs and glass in the wool room!"/>
+    <apply block-break="orange-woolroom-filter" region="limes-woolrooms" message="You can only break webs and glass in the wool room!"/>
+    <apply block-place="never" region="woolrooms" message="You cannot place blocks in the woolrooms!"/>
     <apply enter="only-purple" region="purple-spawn" message="You cannot approach the enemy's spawn island!"/>
     <apply enter="only-blue" region="blue-spawn" message="You cannot approach the enemy's spawn island!"/>
     <apply kit="reset-resitance-kit" region="not-spawns"/> 
