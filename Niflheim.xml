@@ -106,11 +106,9 @@
         
 <regions>
     <!-- build areas -->
-    <rectangle id="purple-island" min="-200,54" max="-90,-54" message="You may not edit the void!"/> <!-- purple's island -->
+    <rectangle id="purple-island" min="-200,54" max="-90,-54" <!-- purple's island -->
     <rectangle id="blue-island" min="35,-54" max="145,54" message="You may not edit the void!"/> <!-- blue's island -->
-    <apply block="deny-team-void"/>
     <rectangle id="middle-islands" min="-90,35" max="35,-34" message="You may not edit the void!"/> <!-- mid islands -->
-    <apply block="always"/>
     
     <!-- player spawns -->
     <negative id="not-spawns">
@@ -119,17 +117,6 @@
             <cuboid id="blue-spawn" min="150,0,-12" max="175,50,12"/>
         </union>
     </negative>
-    <apply enter="only-purple" region="purple-spawn" message="You cannot approach the enemy's spawn island!"/>
-    <apply enter="only-blue" region="blue-spawn" message="You cannot approach the enemy's spawn island!"/>
-    <apply kit="reset-resitance-kit" region="not-spawns"/>
-    
-    <!-- iron in spawn -->
-    <apply block-break="never" message="You may only break iron in spawn!">
-        <complement id="spawns">
-            <material>iron block</material>	
-        </complement>
-    </apply>
-    <apply block="never" region="spawns" message="You may only break iron in spawn!"/>    
     
     <!-- portal spawns -->
     <cuboid id="purple-destination-out" min="-141,18,-1" max="-141,18,2"/>
@@ -138,10 +125,8 @@
     <cylinder id="blue-destination-spawn" base="162.5,39,0.5" radius="1.5" height="0"/>                                                                                
     <union id="portal-spawns">
         <cuboid id="purple-portal" min="-140,18,4" max="-147,24,-3"/>
-        <cuboid id="purple-portal" min="85,18,-3" max="92,24,4"/> 
+        <cuboid id="blue-portal" min="85,18,-3" max="92,24,4"/> 
     </union>
-    <apply enter="only-purple" message="You cannot enter your enemy's portal!"/>
-    <apply enter="only-purple" message="You cannot enter your enemy's portal!"/>
                                         
     <!-- woolrooms -->
     <union id="woolrooms">
@@ -155,10 +140,21 @@
         </union>
     </union>
     <rectangle id="allow-build" min="141,49" max="-196,-48"/>
+    
+    <!-- applicators -->
     <apply enter="only-purple" region="purples-woolrooms" message="You cannot enter your own wool room!"/>
     <apply enter="only-blue" region="blues-woolrooms" message="You cannot enter your own wool room!"/>
     <apply block-break="purple-woolroom-filter" block-place="never" region="purples-woolrooms" message="You may not edit the wool room!"/>
-    <apply block-break="orange-woolroom-filter" block-place="never" region="limes-woolrooms" message="You may not edit the wool room!"/> 
+    <apply block-break="orange-woolroom-filter" block-place="never" region="limes-woolrooms" message="You may not edit the wool room!"/>
+    <apply enter="only-purple" region="purple-spawn" message="You cannot approach the enemy's spawn island!"/>
+    <apply enter="only-blue" region="blue-spawn" message="You cannot approach the enemy's spawn island!"/>
+    <apply kit="reset-resitance-kit" region="not-spawns"/> 
+    <apply block="deny-team-void" region="purple-island" message="You may not edit the void!"/>
+    <apply block="deny-team-void" region="blue-island" message="You may not edit the void!"/>
+    <apply block="always" region="middle-islands"/>
+    <apply enter="only-purple" region="purple-destination-out" message="You cannot enter your enemy's portal!"/>
+    <apply enter="only-blue" region="blue-destination-out" message="You cannot enter your enemy's portal!"/>
+    <apply block-break="only-iron" region="spawns" message="You can only break iron in your spawn!"/>
 </regions>
                                                                                                                                       
 <portals>
