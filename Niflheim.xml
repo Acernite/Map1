@@ -39,14 +39,14 @@
         <effect duration="0" amplifier="0">damage resistance</effect>
     </kit>
     <kit id="purple-kit" parents="spawn-kit">
-        <item slot="5" material="stained_glass" damage="10" amount="64"/>
+        <item slot="6" material="stained_glass" damage="10" amount="64"/>
         <chestplate color="7F3FB2" unbreakable="true">leather chestplate</chestplate>
             <enchantment level="2">projectile_protection</enchantment>
         <boots color="7F3FB2" unbreakable="true">leather boots</boots>
             <enchantment level="2">projectile_protection</enchantment>
     </kit>
     <kit id="blue-kit" parents="spawn-kit">
-        <item slot="5" material="stained_glass" damage="3" amount="64"/>
+        <item slot="6" material="stained_glass" damage="3" amount="64"/>
         <chestplate color="6699D8" unbreakable="true">leather chestplate</chestplate>
             <enchantment level="2">projectile_protection</enchantment>
         <boots color="6699D8" unbreakable="true">leather boots</boots>
