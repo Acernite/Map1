@@ -106,9 +106,9 @@
         
 <regions>
     <!-- build areas -->
-    <rectangle id="purple-island" min="-200,54" max="-90,-54" <!-- purple's island -->
-    <rectangle id="blue-island" min="35,-54" max="145,54" <!-- blue's island -->
-    <rectangle id="middle-islands" min="-90,35" max="35,-34"  <!-- mid islands -->
+    <rectangle id="purple-island" min="-200,54" max="-90,-54"/> <!-- purple's island -->
+    <rectangle id="blue-island" min="35,-54" max="145,54"/> <!-- blue's island -->
+    <rectangle id="middle-islands" min="-90,35" max="35,-34"/>  <!-- mid islands -->
     
     <!-- player spawns -->
     <negative id="not-spawns">
