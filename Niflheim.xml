@@ -18,7 +18,7 @@
         <clear/>
         <item slot="0" material="iron sword" unbreakable="true"/>
         <item slot="1" material="bow" unbreakable="true"> 
-              <enchantment level="1">infinity"</enchantment>
+            <enchantment level="1">infinity"</enchantment>
         </item>
         <item slot="2" material="iron pickaxe" unbreakable="true">
             <enchantment level="1">efficiency</enchantment>
