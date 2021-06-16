@@ -60,12 +60,12 @@
 <spawns>
     <spawn team="purple-team" kit="purple-kit" yaw="-90">
         <region>
-            <cylinder base="-217.5,39,0.5" radius="1.5" height="0"/>
+            <cylinder base="-227.5,39,0.5" radius="1.5" height="0"/>
         </region>
     </spawn>
     <spawn team="blue-team" kit="blue-kit" yaw="90">
         <region>
-            <cylinder base="162.5,39,0.5" radius="1.5" height="0"/>
+            <cylinder base="172.5,39,0.5" radius="1.5" height="0"/>
         </region>
     </spawn>
     <default yaw="180">
@@ -76,17 +76,17 @@
 </spawns>
     
 <wools craftable="false">
-    <wool team="purple-team" color="green" location="127.5,22.-35.5">
-        <monument><block>-209.5,41,-2.5</block></monument>
+    <wool team="purple-team" color="green" location="137.5,22,-35.5">
+        <monument><block>-219.5,41,-2.5</block></monument>
     </wool>
-    <wool team="purple-team" color="cyan" location="127.5,22,36.5">
-        <monument><block>-209.5,41,3.5</block></monument>
+    <wool team="purple-team" color="cyan" location="137.5,22,36.5">
+        <monument><block>-219.5,41,3.5</block></monument>
     </wool>   
-    <wool team="blue-team" color="magenta" location="-182.5,22,36.5">
-        <monument><block>154.5,41,3.5</block></monument>
+    <wool team="blue-team" color="magenta" location="-192.5,22,36.5">
+        <monument><block>164.5,41,3.5</block></monument>
     </wool>                          
-    <wool team="blue-team" color="pink" location="-182.5,22,-35.5">
-        <monument><block>154.5,41,-2.5</block></monument>
+    <wool team="blue-team" color="pink" location="-192.5,22,-35.5">
+        <monument><block>164.5,41,-2.5</block></monument>
     </wool>
 </wools>
     
@@ -114,9 +114,13 @@
         
 <regions>
     <!-- build areas -->
-    <rectangle id="purple-island" min="-200,54" max="-90,-54"/> <!-- purple's island -->
-    <rectangle id="blue-island" min="35,-54" max="145,54"/> <!-- blue's island -->
-    <rectangle id="middle-islands" min="-90,35" max="35,-34"/>  <!-- mid islands -->
+    <cuboid id="purple-island" min="-209.5,11,54.5" max="-96.5,oo,-53.5"/> <!-- purple's island -->
+    <cuboid id="blue-island" min="41.5,11,-53.5" max="155.5,oo,54.5"/> <!-- blue's island -->
+    <rectangle id="middle-islands" min="-95.5,47.5" max="40.5,-46.5"/>  <!-- mid islands -->
+    <union id="underneath">
+        <cuboid id="purple-island-under" min="-209.5,0,54.5" max="-96.5,10,-53.5"/> <!-- underneath purple's island -->
+        <cuboid id="blue-island-under" min="41.5,0,-53.5" max="155.5,10,54.5"/> <!-- underneath blue's island -->
+    </union>
     
     <!-- player spawns -->
     <negative id="not-spawns">
@@ -127,27 +131,24 @@
     </negative>
     
     <!-- portal spawns -->
-    <cuboid id="purple-destination-out" min="-141,18,-1" max="-141,18,2"/>
-    <cylinder id="purple-destination-spawn" base="-217.5,39,0.5" radius="1.5" height="0"/>
-    <cuboid id="blue-destination-out" min="86,18,2" max="86,18,-1"/>
-    <cylinder id="blue-destination-spawn" base="162.5,39,0.5" radius="1.5" height="0"/>                                                                                
-    <union id="portal-spawns">
-        <cuboid id="purple-portal" min="-140,18,4" max="-147,24,-3"/>
-        <cuboid id="blue-portal" min="85,18,-3" max="92,24,4"/> 
-    </union>
+    <cuboid id="purple-destination-out" min="-151.5,18,-0.5" max="-150.5,18,1.5"/> <!-- purple's portal outside -->
+    <cylinder id="purple-destination-spawn" base="-227.5,39,0.5" radius="1.5" height="0"/> <!-- purple's portal at spawn -->
+    <cuboid id="blue-destination-out" min="96.5,18,1.5" max="95.5,18,-0.5"/> <!-- blue's portal outside -->
+    <cylinder id="blue-destination-spawn" base="172.5,39,0.5" radius="1.5" height="0"/> <!-- blue's portal at spawn -->                         
+    <cuboid id="purple-portal" min="-155.5,18,3.5" max="-151,18,-2.5"/>
+    <cuboid id="blue-portal" min="100.5,18,-2.5" max="96.5,18,3.5"/> 
                                         
     <!-- woolrooms -->
     <union id="woolrooms">
         <union id="purples-woolrooms">
-            <cylinder base="129,0,-37" radius="9.5" height="oo" id="green-woolroom"/>
-            <cylinder base="129,0,38" radius="9.5" height="oo" id="cyan-woolroom"/>
+            <cylinder base="139,0,-37" radius="9.5" height="oo" id="green-woolroom"/>
+            <cylinder base="139,0,38" radius="9.5" height="oo" id="cyan-woolroom"/>
         </union>
         <union id="blues-woolrooms">
-            <cylinder base="-184,0,38" radius="9.5" height="oo" id="magenta-woolroom"/>
-            <cylinder base="-184,0,-37" radius="9.5" height="oo" id="pink-woolroom"/>
+            <cylinder base="-194,0,38" radius="9.5" height="oo" id="magenta-woolroom"/>
+            <cylinder base="-194,0,-37" radius="9.5" height="oo" id="pink-woolroom"/>
         </union>
     </union>
-    <rectangle id="allow-build" min="141,49" max="-196,-48"/>
     
     <!-- applicators -->
     <apply enter="only-purple" region="purples-woolrooms" message="You cannot enter your own wool room!"/>
@@ -161,33 +162,34 @@
     <apply block="deny-team-void" region="purple-island" message="You may not edit the void!"/>
     <apply block="deny-team-void" region="blue-island" message="You may not edit the void!"/>
     <apply block="always" region="middle-islands"/>
-    <apply enter="only-purple" region="purple-destination-out" message="You cannot enter Purple's portal!"/>
-    <apply enter="only-blue" region="blue-destination-out" message="You cannot enter Blue's portal!"/>
+    <apply enter="only-purple" region="purple-portal" message="You cannot enter Purple's portal!"/>
+    <apply enter="only-blue" region="blue-portal" message="You cannot enter Blue's portal!"/>
     <apply block-break="only-iron" region="spawns" message="You can only break iron in your spawn!"/>
+    <apply block="never" region="underneath" message="No underbridge here! :)"/>
 </regions>
                                                                                                                                       
 <portals>
     <portal> <!--purple portal to outside-->
         <region>
-            <cuboid min="-208,39,-1" max="-208,43,2"/></region>
+            <cuboid min="-218.5,39,-0.5" max="-218.5,43,1.5"/></region>
         <destination>
             <region id="purple-destination-out"/></destination>
     </portal>
     <portal> <!--purple portal to spawn-->
         <region>
-            <cuboid min="-143,18,2" max="-143,22,-1"/></region>
+            <cuboid min="-153.5,18,1.5" max="-153.5,22,-0.5"/></region>
         <destination>
             <region id="purple-destination-spawn"/></destination>
-    </portal>            
+    </portal> 
     <portal> <!--blue portal to outside-->
         <region>
-            <cuboid min="-153,39,2" max="153,43,-1"/></region>
+            <cuboid min="163.5,39,1.5" max="163.5,43,-0.5"/></region>
         <destination>
             <region id="blue-destination-out"/></destination>
     </portal>
     <portal> <!--blue portal to spawn-->
         <region>
-            <cuboid min="88,18,-1" max="88,22,2"/></region>
+            <cuboid min="98.5,18,-0.5" max="98.5,22,1.5"/></region>
         <destination>
             <region id="blue-destination-spawn"/>
         </destination>      
