@@ -10,21 +10,21 @@
     <author uuid="787c2738-70ba-4bfc-8faf-70ae9d87e5b9"/> <!--  uracils  -->
 </authors>
 <teams>
-    <team id="purple-team" color="purple" max="30">Purple</team>
-    <team id="blue-team" color="light_blue" max="30">Blue</team>
+    <team id="purple-team" color="dark_purple" max="30">Purple</team>
+    <team id="blue-team" color="aqua" max="30">Blue</team>
 </teams>
 <kits>
     <kit id="spawn-kit">
         <clear/>
         <item slot="0" material="iron sword" unbreakable="true"/>
         <item slot="1" material="bow" unbreakable="true"> 
-              <enchantment level="1">arrow_infinite"</enchantment>
+              <enchantment level="1">infinity"</enchantment>
         </item>
         <item slot="2" material="iron pickaxe" unbreakable="true">
-            <enchantment level="1">dig_speed</enchantment>
+            <enchantment level="1">efficiency</enchantment>
         </item>
         <item slot="3" material="iron axe" unbreakable="true">
-            <enchantment level="1">dig_speed"</enchantment>
+            <enchantment level="1">efficiency"</enchantment>
         </item>
         <item slot="4" material="bucket" amount="1"/>
         <item slot="5" material="log" damage="2" amount="64"/>
@@ -40,17 +40,21 @@
     </kit>
     <kit id="purple-kit" parents="spawn-kit">
         <item slot="6" material="stained_glass" damage="10" amount="64"/>
-        <chestplate color="7F3FB2" unbreakable="true">leather chestplate</chestplate>
+        <chestplate material="leather chestplate" color="7F3FB2" unbreakable="true">
             <enchantment level="2">projectile_protection</enchantment>
-        <boots color="7F3FB2" unbreakable="true">leather boots</boots>
+        </chestplate>
+        <boots material="leather boots" color="7F3FB2" unbreakable="true">
             <enchantment level="2">projectile_protection</enchantment>
+        </boots>
     </kit>
     <kit id="blue-kit" parents="spawn-kit">
         <item slot="6" material="stained_glass" damage="3" amount="64"/>
-        <chestplate color="6699D8" unbreakable="true">leather chestplate</chestplate>
+        <chestplate material="leather chestplate" color="6699D8" unbreakable="true">
             <enchantment level="2">projectile_protection</enchantment>
-        <boots color="6699D8" unbreakable="true">leather boots</boots>
+        </chestplate>
+        <boots material="leather boots" color="6699D8" unbreakable="true">
              <enchantment level="2">projectile_protection</enchantment>
+        </boots>
     </kit>
 </kits>
 <spawns>
