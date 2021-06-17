@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<map proto="1.0">
+<map proto="1.4.0">
 <name>Niflheim</name>
 <version>1.0.0</version>
 <objective>Take the opponent's wools and place them on your victory monument!</objective>
@@ -154,7 +154,7 @@
     <apply enter="only-purple" region="purples-woolrooms" message="You cannot enter your own wool room!"/>
     <apply enter="only-blue" region="blues-woolrooms" message="You cannot enter your own wool room!"/>
     <apply block-break="purple-woolroom-filter" region="purples-woolrooms" message="You can only break webs and glass in the wool room!"/>
-    <apply block-break="orange-woolroom-filter" region="limes-woolrooms" message="You can only break webs and glass in the wool room!"/>
+    <apply block-break="blue-woolroom-filter" region="blues-woolrooms" message="You can only break webs and glass in the wool room!"/>
     <apply block-place="never" region="woolrooms" message="You cannot place blocks in the woolrooms!"/>
     <apply enter="only-purple" region="purple-spawn" message="You cannot approach the enemy's spawn island!"/>
     <apply enter="only-blue" region="blue-spawn" message="You cannot approach the enemy's spawn island!"/>
