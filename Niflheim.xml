@@ -114,13 +114,26 @@
         
 <regions>
     <!-- build areas -->
-    <cuboid id="purple-island" min="-210,11,55" max="-96,oo,-54"/> <!-- purple's island -->
-    <cuboid id="blue-island" min="41,11,-54" max="156,oo,55"/> <!-- blue's island -->
-    <rectangle id="middle-islands" min="-96,48" max="41,-47"/>  <!-- mid islands -->
-    <union id="underneath">
-        <cuboid id="purple-island-under" min="-210,0,55" max="-96,10,-54"/> <!-- underneath purple's island -->
-        <cuboid id="blue-island-under" min="41,0,-54" max="156,10,55"/> <!-- underneath blue's island -->
+    <union id="non-buildable-purple"> 
+        <cuboid id="purple-island" min="-195,11,53" max="-96,oo,-54"/> <!-- purple's island (exluding back)-->
+        <union id="behind-pm-woolrooms"> <!-- space behind wool rooms -->
+            <rectangle id="behind-pink" min="-210,-13" max="-194,-52"/> 
+            <rectangle id="behind-magenta" min="-210,14" max="-194,53"/>
+        </union>
     </union>
+    <union id="non-buildable-blue">
+        <cuboid id="blue-island" min="41,11,-54" max="140,oo,53"/> <!-- blue's island -->
+        <union id="behind-cg-woolrooms">
+            <rectangle id="behind cyan" min="139,53" max="155,14"/>
+            <rectangle id="behind green" min="155,-13" max="139,-52"/>
+        </union>
+    </union>
+    <union id="back-lanes">
+        <cuboid id="behind-blue" min="151,11,14" max="140,oo,-13"/>
+        <cuboid id="behind-purple" min="-206,11,-13" max="-195,oo,14"/>
+    </union>
+    <cuboid id="middle-islands" min="-96,11,48" max="41,oo,-47"/>  <!-- mid islands -->
+    <cuboid id="underneath" min="-210,0,55" max="157,10,-54"/> <!-- under map -->
     
     <!-- player spawns -->
     <negative id="not-spawns">
@@ -159,13 +172,14 @@
     <apply enter="only-purple" region="purple-spawn" message="You cannot approach the enemy's spawn island!"/>
     <apply enter="only-blue" region="blue-spawn" message="You cannot approach the enemy's spawn island!"/>
     <apply kit="reset-resitance-kit" region="not-spawns"/> 
-    <apply block="deny-team-void" region="purple-island" message="You may not edit the void!"/>
-    <apply block="deny-team-void" region="blue-island" message="You may not edit the void!"/>
+    <apply block="deny-team-void" region="non-buildable-purple" message="You may not edit the void!"/>
+    <apply block="deny-team-void" region="non-buildable-blue" message="You may not edit the void!"/>
     <apply block="always" region="middle-islands"/>
     <apply enter="only-purple" region="purple-portal" message="You cannot enter Purple's portal!"/>
     <apply enter="only-blue" region="blue-portal" message="You cannot enter Blue's portal!"/>
     <apply block-break="only-iron" region="spawns" message="You can only break iron in your spawn!"/>
     <apply block="never" region="underneath" message="No underbridge here! :)"/>
+    <apply block="always" region="back-lanes"/> 
 </regions>
                                                                                                                                       
 <portals>
