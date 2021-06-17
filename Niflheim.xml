@@ -122,7 +122,7 @@
         </union>
     </union>
     <union id="non-buildable-blue">
-        <cuboid id="blue-island" min="41,11,-54" max="140,oo,53"/> <!-- blue's island -->
+        <cuboid id="blue-island" min="41,11,-54" max="140,oo,53"/> <!-- blue's island (exluding back)-->
         <union id="behind-cg-woolrooms">
             <rectangle id="behind cyan" min="139,53" max="155,14"/>
             <rectangle id="behind green" min="155,-13" max="139,-52"/>
