@@ -114,29 +114,29 @@
         
 <regions>
     <!-- build areas -->
-    <cuboid id="purple-island" min="-209.5,11,54.5" max="-96.5,oo,-53.5"/> <!-- purple's island -->
-    <cuboid id="blue-island" min="41.5,11,-53.5" max="155.5,oo,54.5"/> <!-- blue's island -->
-    <rectangle id="middle-islands" min="-95.5,47.5" max="40.5,-46.5"/>  <!-- mid islands -->
+    <cuboid id="purple-island" min="-210,11,55" max="-96,oo,-54"/> <!-- purple's island -->
+    <cuboid id="blue-island" min="41,11,-54" max="156,oo,55"/> <!-- blue's island -->
+    <rectangle id="middle-islands" min="-96,48" max="41,-47"/>  <!-- mid islands -->
     <union id="underneath">
-        <cuboid id="purple-island-under" min="-209.5,0,54.5" max="-96.5,10,-53.5"/> <!-- underneath purple's island -->
-        <cuboid id="blue-island-under" min="41.5,0,-53.5" max="155.5,10,54.5"/> <!-- underneath blue's island -->
+        <cuboid id="purple-island-under" min="-210,0,55" max="-96,10,-54"/> <!-- underneath purple's island -->
+        <cuboid id="blue-island-under" min="41,0,-54" max="156,10,55"/> <!-- underneath blue's island -->
     </union>
     
     <!-- player spawns -->
     <negative id="not-spawns">
         <union id="spawns">
-            <cuboid id="purple-spawn" min="-205,0,12" max="-230,50,-12"/>
-            <cuboid id="blue-spawn" min="150,0,-12" max="175,50,12"/>
+            <cuboid id="purple-spawn" min="-214,0,13" max="-240,80,-12"/>
+            <cuboid id="blue-spawn" min="160,0,-12" max="186,80,13"/>
         </union>
     </negative>
     
     <!-- portal spawns -->
-    <cuboid id="purple-destination-out" min="-151.5,18,-0.5" max="-150.5,18,1.5"/> <!-- purple's portal outside -->
+    <cuboid id="purple-destination-out" min="-152,18,-1" max="-150,18,2"/> <!-- purple's portal outside -->
     <cylinder id="purple-destination-spawn" base="-227.5,39,0.5" radius="1.5" height="0"/> <!-- purple's portal at spawn -->
-    <cuboid id="blue-destination-out" min="96.5,18,1.5" max="95.5,18,-0.5"/> <!-- blue's portal outside -->
+    <cuboid id="blue-destination-out" min="97,18,2" max="95,18,-1"/> <!-- blue's portal outside -->
     <cylinder id="blue-destination-spawn" base="172.5,39,0.5" radius="1.5" height="0"/> <!-- blue's portal at spawn -->                         
-    <cuboid id="purple-portal" min="-155.5,18,3.5" max="-151,18,-2.5"/>
-    <cuboid id="blue-portal" min="100.5,18,-2.5" max="96.5,18,3.5"/> 
+    <cuboid id="purple-portal" min="-156,18,4" max="-151,18,-3"/>
+    <cuboid id="blue-portal" min="101,18,-3" max="96,18,4"/> 
                                         
     <!-- woolrooms -->
     <union id="woolrooms">
@@ -171,25 +171,25 @@
 <portals>
     <portal> <!--purple portal to outside-->
         <region>
-            <cuboid min="-218.5,39,-0.5" max="-218.5,43,1.5"/></region>
+            <cuboid min="-219,39,-1" max="-218,43,2"/></region>
         <destination>
             <region id="purple-destination-out"/></destination>
     </portal>
     <portal> <!--purple portal to spawn-->
         <region>
-            <cuboid min="-153.5,18,1.5" max="-153.5,22,-0.5"/></region>
+            <cuboid min="-153,18,2" max="-154,22,-1"/></region>
         <destination>
             <region id="purple-destination-spawn"/></destination>
     </portal> 
     <portal> <!--blue portal to outside-->
         <region>
-            <cuboid min="163.5,39,1.5" max="163.5,43,-0.5"/></region>
+            <cuboid min="164,39,2" max="163,43,-1"/></region>
         <destination>
             <region id="blue-destination-out"/></destination>
     </portal>
     <portal> <!--blue portal to spawn-->
         <region>
-            <cuboid min="98.5,18,-0.5" max="98.5,22,1.5"/></region>
+            <cuboid min="98,18,-1" max="99,22,2"/></region>
         <destination>
             <region id="blue-destination-spawn"/>
         </destination>      
