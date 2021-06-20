@@ -11,23 +11,23 @@
 </authors>
 <teams>
     <team id="purple-team" color="dark_purple" max="30">Purple</team>
-    <team id="blue-team" color="aqua" max="30">Blue</team>
+    <team id="blue-team" color="blue" max="30">Blue</team>
 </teams>
 <kits>
     <kit id="spawn-kit">
         <clear/>
         <item slot="0" material="iron sword" unbreakable="true"/>
         <item slot="1" material="bow" unbreakable="true"> 
-            <enchantment level="1">infinity"</enchantment>
+            <enchantment level="1">infinity</enchantment>
         </item>
         <item slot="2" material="iron pickaxe" unbreakable="true">
             <enchantment level="1">efficiency</enchantment>
         </item>
         <item slot="3" material="iron axe" unbreakable="true">
-            <enchantment level="1">efficiency"</enchantment>
+            <enchantment level="1">efficiency</enchantment>
         </item>
         <item slot="4" material="bucket" amount="1"/>
-        <item slot="5" material="log" damage="2" amount="64"/>
+        <item slot="5" material="log:2" amount="64"/>
         <item slot="7" material="golden apple" amount="1"/>
         <item slot="8" material="golden carrot" amount="64"/>
         <item slot="28" material="arrow" amount="1"/>
@@ -70,23 +70,23 @@
     </spawn>
     <default yaw="180">
         <region>
-            <cylinder base="27.5,59,61.5" radius="1.5" height="0"/>
+            <cylinder base="-27.5,59,61.5" radius="1.5" height="0"/>
         </region>
     </default>
 </spawns>
     
 <wools craftable="false">
     <wool team="purple-team" color="green" location="137.5,22,-35.5">
-        <monument><block>-219.5,41,-2.5</block></monument>
+        <monument><block>-219.5,40,-2.5</block></monument>
     </wool>
     <wool team="purple-team" color="cyan" location="137.5,22,36.5">
-        <monument><block>-219.5,41,3.5</block></monument>
+        <monument><block>-219.5,40,3.5</block></monument>
     </wool>   
     <wool team="blue-team" color="magenta" location="-192.5,22,36.5">
-        <monument><block>164.5,41,3.5</block></monument>
+        <monument><block>164.5,40,3.5</block></monument>
     </wool>                          
     <wool team="blue-team" color="pink" location="-192.5,22,-35.5">
-        <monument><block>164.5,41,-2.5</block></monument>
+        <monument><block>164.5,40,-2.5</block></monument>
     </wool>
 </wools>
     
@@ -179,6 +179,7 @@
     <apply enter="only-blue" region="blue-portal" message="You cannot enter Blue's portal!"/>
     <apply block-break="only-iron" region="spawns" message="You can only break iron in your spawn!"/>
     <apply block="never" region="underneath" message="No underbridge here! :)"/>
+    <apply block-"never" region="spawns" message="You cannot edit spawn!"/>
     <apply block="always" region="back-lanes"/> 
 </regions>
                                                                                                                                       
