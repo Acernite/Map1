@@ -116,33 +116,22 @@
     <material id="only-air">air</material>
 
     <all id="only-renewable">
-        <material>iron block</material>
+        <material>iron block</material>  
         <not>
             <cause>player</cause>
         </not>
     </all>
-
 </filters>
         
 <regions>
     <!-- build areas -->
     <union id="non-buildable-purple"> 
-        <cuboid id="purple-island" min="-195,11,53" max="-96,oo,-54"/> <!-- purple's island (exluding back)-->
-        <union id="behind-pm-woolrooms"> <!-- space behind wool rooms -->
-            <rectangle id="behind-pink" min="-210,-13" max="-194,-52"/> 
-            <rectangle id="behind-magenta" min="-210,14" max="-194,53"/>
-        </union>
+        <cuboid id="purple-island" min="-195,11,53" max="-95,oo,-54"/> <!-- purple's island (exluding back)-->
+        <rectangle id="behind-pm" min="-210,53" max="-194,-52"/>    
     </union>
     <union id="non-buildable-blue">
         <cuboid id="blue-island" min="41,11,-54" max="140,oo,53"/> <!-- blue's island (exluding back)-->
-        <union id="behind-cg-woolrooms">
-            <rectangle id="behind cyan" min="139,53" max="155,14"/>
-            <rectangle id="behind green" min="155,-13" max="139,-52"/>
-        </union>
-    </union>
-    <union id="back-lanes">
-        <cuboid id="behind-blue" min="151,11,14" max="140,oo,-13"/>
-        <cuboid id="behind-purple" min="-206,11,-13" max="-195,oo,14"/>
+        <rectangle id="behind-cg" min="-139,53" max="155,-52"/>    
     </union>
     <cuboid id="middle-islands" min="-96,11,48" max="41,oo,-47"/>  <!-- mid islands -->
     <cuboid id="underneath" min="-210,0,55" max="157,10,-54"/> <!-- under map -->
@@ -150,6 +139,7 @@
         <cuboid id="north-mid" min="-96,0,-46" max="41,50,-100"/>
         <cuboid id="south-mid" min="-96,0,47" max="41,50,100"/>
     </union>
+
     <!-- player spawns -->
     <negative id="not-spawns">
         <union id="spawns">
@@ -157,7 +147,7 @@
             <cuboid id="blue-spawn" min="160,0,-12" max="186,80,13"/>
         </union>
     </negative>
-    
+
     <!-- portal spawns -->
     <cuboid id="purple-destination-out" min="-152,18,-1" max="-150,18,2"/> <!-- purple's portal outside -->
     <cylinder id="purple-destination-spawn" base="-227.5,39,0.5" radius="1.5" height="0"/> <!-- purple's portal at spawn -->
@@ -180,6 +170,7 @@
     </union>
     
     <!-- applicators -->
+    <apply block="always" region="middle-islands"/>    
     <apply enter="only-purple" region="purples-woolrooms" message="You cannot enter your own wool room!"/>
     <apply enter="only-blue" region="blues-woolrooms" message="You cannot enter your own wool room!"/>
     <apply block-break="purple-woolroom-filter" region="purples-woolrooms" message="You can only break webs/glass in your opponent's wool rooms!"/>
@@ -189,17 +180,13 @@
     <apply enter="only-blue" region="blue-spawn" message="You cannot approach the enemy's spawn island!"/>
     <apply block="deny-team-void" region="non-buildable-purple" message="You may not edit the void!"/>
     <apply block="deny-team-void" region="non-buildable-blue" message="You may not edit the void!"/>
-    <apply block="always" region="middle-islands"/>
-    <apply enter="only-purple" region="purple-portal" message="You cannot enter Purple's portal!"/>
-    <apply enter="only-blue" region="blue-portal" message="You cannot enter Blue's portal!"/>
-    <apply block-break="only-iron" region="spawns" message="You can only break iron in your spawn!"/>
+    <apply enter="only-purple" region="purple-portal" message="You cannot enter `5Purple's `Cportal!"/>
+    <apply enter="only-blue" region="blue-portal" message="You cannot enter `9Blue's `Cportal!"/>
     <apply block="never" region="underneath" message="No underbridge here!"/>
-    <apply block="never" region="spawns" message="You cannot edit spawn!"/>
-    <apply block="always" region="back-lanes"/> 
-    <apply block="never" region="no-build-portal"/>
-    <apply enter="only-purple" region="purple-portal"/>
-    <apply enter="only-blue" region="blue-portal"/>
-    <apply block="never" region="mid-sides"/>
+    <apply block-place="only-renewable" region="spawns" message="You can only edit iron in your spawn!"/>
+    <apply block-break="only-iron" region="spawns" message="You can only edit iron in your spawn!"/>
+    <apply block="never" region="no-build-portal" message="You cannot build in portal regions!"/>
+    <apply block="never" region="mid-sides" message="You may not edit the void!"/>
 </regions>
                                                                                                                                       
 <portals>
@@ -230,14 +217,10 @@
     </portal>
 </portals>
 
-<respawn delay="2s" blackout="true"/>
+<respawn delay="2.5s" blackout="true"/>
 
 <renewables>
-    <renewable rate="3" grow="true" sound="true" particles="true" avoid-players="2">
-        <region id="spawns"/>
-        <renew-filter id="only-renewable"/>
-        <replace-filter id="only-air"/>
-    </renewable>
+    <renewable rate="3" sound="true" particles="true" region="everywhere" renew-filter="only-iron" replace-filter="only-air" avoid-players="2"/>
 </renewables>
 <itemkeep>
     <item>iron sword</item>
@@ -259,6 +242,13 @@
     <item>168:0</item>
     <item>168:2</item>
     <item>168:1</item>
+    <item>126:5</item>
+    <item>string</item>
+    <item>bucket</item>
+    <item>396</item>
+    <item>256</item>
+    <item>17:2</item>
+    <item>stained glass</item>
 </itemremove>
 <toolrepair>
     <tool>iron sword</tool>
