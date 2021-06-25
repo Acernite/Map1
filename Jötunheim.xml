@@ -109,7 +109,7 @@
 <filters>
     <team id="only-orange">orange-team</team>
     <team id="only-blue">blue-team</team>
-    <deny id="deny-team-void">
+    <deny id="deny-void">
         <void/>
     </deny> 
 </filters>
@@ -129,4 +129,42 @@
     <negative id="not-spawns">
         <union id="spawn-regions">
     </negative> 
+    <point id="mid-spawner">0,120,0</point>
+    <cuboid id="player-region-spawner" min="-13,10,14" max="14,40,-13"/>
+    <!-- applicators -->
+    <apply block="never" region="outer-no-build" message="You cannot edit the void!"/>
+    <apply block="never" region="spawn-regions" message="You cannot edit the spawns!"/>
+    <apply enter="only-orange" region="orange-spawnregion" message="You cannot enter `6Orange's `Cspawn!"/>
+    <apply enter="only-blue" region="blue-spawnregion" message="You cannot enter `9Blue's `Cspawn!"/>
+    <apply block="deny-void" region="rear-island" message="You cannot edit the void!"/>
+    <apply kit="reset-resitance-kit" region="not-spawns"/>
 </regions> 
+<spawners>
+    <spawner spawn-region="mid-spawner" player-region="player-region-spawner" min-delay="5s" max-delay="20s">
+        <item amount="1" material="golden apple"/>
+    </spawner>
+</spawners>
+<itemremove>
+    <item>leather chestplate</item>
+    <item>leather leggings</item> 
+    <item>leather boots</item>
+    <item>stained clay</item> 
+    <item>snowball</item> 
+    <item>164</item> 
+    <item>5:1</item> 
+    <item>126:1</item> 
+    <item>5:5</item> 
+    <item>134</item> 
+    <item>126:5</item> 
+    <item>18</item> 
+    <item>44</item> 
+    <item>1:6</item>
+    <item>1:5</item> 
+    <item>1:1</item> 
+    <item>98</item> 
+    <item>191</item> 
+    <item>188</item>
+    <item>1:4</item>
+    <item>126:13</item> 
+    <item>126:9</item> 
+    
