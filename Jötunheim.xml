@@ -83,7 +83,12 @@
         </region>
     </default>
 </spawns>
-<destroyables name="Campfire Monument" materials="obsidian">
+<modes>
+    <mode id="gold-mode" after="30m" material="gold block"/>
+    <mode id="beacon-mode" after="20m" material="beacon"/>
+    <mode id="coal-mode" after"50m" material="coal block"/>
+</modes>
+<destroyables name="Campfire Monument" materials="obsidian" modes="beacon-mode coal-mode">
     <destroyable owner="orange">
         <region>
             <cuboid min="-3,26,175" max="-0,30,178"/>
@@ -95,7 +100,7 @@
         </region>
     </destroyable>
 </destroyables>
-<cores name="Lantern Core" material="obsidian" leak="5">
+<cores name="Lantern Core" material="obsidian" leak="5" modes="gold-mode">
     <core team="orange">
         <region>
             <cuboid min="-5,32,137" max="-12,40,130"/>
