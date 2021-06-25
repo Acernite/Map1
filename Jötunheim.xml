@@ -91,24 +91,24 @@
     <mode id="coal-mode" after="50m" material="coal block"/>
 </modes>
 <destroyables name="Campfire Monument" materials="obsidian" modes="beacon-mode coal-mode">
-    <destroyable owner="orange">
+    <destroyable owner="orange-team">
         <region>
             <cuboid min="-3,26,175" max="-0,30,178"/>
         </region>
     </destroyable>
-    <destroyable owner="blue">
+    <destroyable owner="blue-team">
         <region>
             <cuboid min="-3,26,-174" max="0,30,-177"/>
         </region>
     </destroyable>
 </destroyables>
 <cores name="Lantern Core" material="obsidian" leak="5" modes="gold-mode">
-    <core team="orange">
+    <core team="orange-team">
         <region>
             <cuboid min="-5,32,137" max="-12,40,130"/>
         </region>
     </core>
-    <core team="blue">
+    <core team="blue-team">
         <region>
             <cuboid min="-12,32,-136" max="-5,40,-129"/>
         </region>
@@ -123,8 +123,8 @@
 </filters>
 <regions>
     <union id="spawn-regions">    
-        <cuboid id="orange-spawnregion" min="-2,15,147" max="-19,95,-162"/> 
-        <cuboid id="blue-spawnregion" min="-1,15,-146" max="-19,95,163"/> 
+        <cuboid id="orange-spawnregion" min="-2,15,147" max="-19,95,163"/> 
+        <cuboid id="blue-spawnregion" min="-2,15,-146" max="-19,95,-162"/> 
     </union>
     <union id="rear-island">
         <rectange id="orange-rear" min="-56,135" max="57,188"/>
@@ -135,7 +135,7 @@
         <rectange id="east-side" min="57,-134" max="-oo,-134"/>
     </union>
     <negative id="not-spawns">
-        <union id="spawn-regions"/>
+        <region id="spawn-regions"/>
     </negative> 
     <point id="mid-spawner">0,120,0</point>
     <cuboid id="player-region-spawner" min="-13,10,14" max="14,40,-13"/>
