@@ -172,6 +172,8 @@
     <item>1:4</item>
     <item>126:13</item> 
     <item>126:9</item> 
+    <item>106</item>
+    <item>17:1</item>
 </itemremove>
 <broadcasts>
     <tip after="6s" every="3m">The core is located in front of spawn and the monument is behind the cabin"</tip>
