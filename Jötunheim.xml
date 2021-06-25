@@ -167,4 +167,21 @@
     <item>1:4</item>
     <item>126:13</item> 
     <item>126:9</item> 
-    
+</itemremove>
+<broadcasts>
+    <tip after="6s" every="3m">The core is located in front of spawn and the monument is behind the cabin"</tip>
+    <tip after="7s" every="3m">The main entrance to the iron mine is under the rocking chair"</tip>
+</broadcasts>
+<toolrepair>
+    <tool>iron sword</tool>
+    <tool>bow</tool>
+    <tool>iron pickaxe</tool>
+    <tool>iron axe</tool>
+</toolrepair>
+<maxbuildheight>75</maxbuildheight>
+<kill-rewards>
+    <kill-reward>
+        <item material="golden apple" amount="1"/>
+    </kill-reward>
+</kill-rewards>
+</map>
