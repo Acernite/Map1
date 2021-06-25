@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <map proto="1.4.0">
-<name>Jötunheim</name>
+<name>Jotunheim</name>
 <version>1.0.0</version>
 <objective>Destroy the opponent's monument and leak their core!</objective>
 <gamemode>dtm</gamemode>
@@ -36,7 +36,7 @@
         <item slot="29" material="diamond pickaxe" unbreakable="true"/>
         <item slot="30" material="iron spade" unbreakable="true"/>
         <item slot="31" material="bucket"/>
-        <effect duration="5" amplifier="100">damage resistance</effect>
+        <effect duration="10s" amplifier="100">damage resistance</effect>
     </kit>
     <kit id="orange-kit" parents="spawn-kit">
         <item slot="5" material="stained_clay" damage="1" amount="64"/>
@@ -71,24 +71,24 @@
 <spawns>
     <spawn team="orange-team" kit="orange-kit" yaw="-180">
         <region>
-            <cuboid id="orange-drop" min="-12,89,158" max="-9,89,156"/>
+            <cuboid id="orange-drop" min="-12,89,157" max="-9,89,156"/>
         </region>
     </spawn>
      <spawn team="blue-team" kit="blue-kit" yaw="0">
         <region>
-            <cuboid id="blue-drop" min="-9,89,-157" max="-12,89,-155"/>
+            <cuboid id="blue-drop" min="-9,89,-156" max="-12,89,-155"/>
         </region>
     </spawn>
-    <default>
+    <default yaw="-90">
         <region>
-            <cylinder base="-102,73,2.5" radius="1.5" height="0" yaw="-90"/>
+            <cylinder base="-102.5,73,0.5" radius="1" height="0"/>
         </region>
     </default>
 </spawns>
 <modes>
-    <mode id="gold-mode" after="30m" material="gold block"/>
-    <mode id="beacon-mode" after="20m" material="beacon"/>
-    <mode id="coal-mode" after="50m" material="coal block"/>
+    <mode id="gold-mode" after="30m" material="gold block" name="`6Gold Core"/>
+    <mode id="beacon-mode" after="20m" material="beacon" name="`BBeacon Monument"/>
+    <mode id="coal-mode" after="50m" material="coal block" name="`8Coal Monument"/>
 </modes>
 <destroyables name="Campfire Monument" materials="obsidian" modes="beacon-mode coal-mode">
     <destroyable owner="orange-team">
@@ -123,32 +123,34 @@
 </filters>
 <regions>
     <union id="spawn-regions">    
-        <cuboid id="orange-spawnregion" min="-2,15,147" max="-19,95,163"/> 
-        <cuboid id="blue-spawnregion" min="-2,15,-146" max="-19,95,-162"/> 
+        <rectangle id="orange-spawnregion" min="-2,147" max="-19,163"/> 
+        <rectangle id="blue-spawnregion" min="-2,-146" max="-19,-162"/> 
     </union>
     <union id="rear-island">
-        <rectange id="orange-rear" min="-56,135" max="57,188"/>
-        <rectange id="blue-rear" min="57,-134" max="-57,-187"/>
+        <rectangle id="orange-rear" min="-58,135" max="60,190"/>
+        <rectangle id="blue-rear" min="59,-134" max="-58,-189"/>
     </union>
     <union id="outer-no-build">
-        <rectange id="west-side" min="-56,135" max="oo,135"/>
-        <rectange id="east-side" min="57,-134" max="-oo,-134"/>
+        <rectangle id="west-side" min="-56,135" max="-oo,-134"/>
+        <rectangle id="east-side" min="57,-134" max="oo,135"/>
     </union>
     <negative id="not-spawns">
         <region id="spawn-regions"/>
     </negative> 
-    <point id="mid-spawner">0,120,0</point>
+    <point id="mid-spawner">0,13,0</point>
     <cuboid id="player-region-spawner" min="-13,10,14" max="14,40,-13"/>
+    <cuboid id="no-block-spawner" min="3,11,3" max="-2,15,-2"/>
     <!-- applicators -->
     <apply block="never" region="outer-no-build" message="You cannot edit the void!"/>
     <apply block="never" region="spawn-regions" message="You cannot edit the spawns!"/>
     <apply enter="only-orange" region="orange-spawnregion" message="You cannot enter `6Orange's `Cspawn!"/>
     <apply enter="only-blue" region="blue-spawnregion" message="You cannot enter `9Blue's `Cspawn!"/>
     <apply block="deny-void" region="rear-island" message="You cannot edit the void!"/>
+    <apply block="never" region="no-block-spawner" message="You may not modify the spawner region!"/>
     <apply kit="reset-resitance-kit" region="not-spawns"/>
 </regions> 
 <spawners>
-    <spawner spawn-region="mid-spawner" player-region="player-region-spawner" min-delay="5s" max-delay="20s">
+    <spawner spawn-region="mid-spawner" player-region="player-region-spawner" min-delay="20s" max-delay="30s">
         <item amount="1" material="golden apple"/>
     </spawner>
 </spawners>
@@ -177,16 +179,21 @@
     <item>126:9</item> 
     <item>106</item>
     <item>17:1</item>
+    <item>364</item>
+    <item>arrow</item>
+    <item>bucket</item>
 </itemremove>
 <broadcasts>
-    <tip after="6s" every="3m">The core is located in front of spawn and the monument is behind the cabin"</tip>
-    <tip after="7s" every="3m">The main entrance to the iron mine is under the rocking chair"</tip>
+    <tip after="6s" every="3m">The core is located in front of spawn and the monument is behind the cabin</tip>
+    <tip after="7s" every="3m">The main entrance to the iron mine is under the rocking chair</tip>
 </broadcasts>
 <toolrepair>
     <tool>iron sword</tool>
     <tool>bow</tool>
     <tool>iron pickaxe</tool>
+    <tool>diamond pickaxe</tool>
     <tool>iron axe</tool>
+    <tool>iron spade</tool>
 </toolrepair>
 <maxbuildheight>75</maxbuildheight>
 <kill-rewards>
