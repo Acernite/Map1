@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<map proto="1.4.0">
+<name>Overgrowth</name>
+<version>1.0.0</version>
+<objective>Capture points and reach 800 score to break the opponents monument and leak their core!</objective>
+<gamemode>dtm</gamemode>
+<gamemode>dtc</gamemode>
+<gamemode>koth</gamemode>
+<created>2021-06-30</created>
+<authors>
+    <author uuid="93a2f790-e430-4742-94ac-e513660bef37"/> <!--  adenines  -->
+    <author uuid="787c2738-70ba-4bfc-8faf-70ae9d87e5b9"/> <!--  uracils  -->
+</authors>
+<teams>
+    <team id="red-team" color="red" max="30">Red</team>
+    <team id="blue-team" color="blue" max="30">Blue</team>
+</teams>  
+<kits>
+    <kit id="spawn-kit">
+        <item slot="0" material="stone sword" unbreakable="true"/>
+        <item slot="1" material="bow" unbreakable="true"> 
+            <enchantment level="1">infinity</enchantment>
+        </item>
+        <item slot="2" material="diamond pickaxe" unbreakable="true"/>
+        <item slot="5" material="leaves" damage="2" amount="32"/>
+        <item slot="7" material="golden apple" amount="2"/>
+        <item slot="8" material="golden_carrot" amount="64"/>
+        <item slot="28" material="arrow" amount="1"/>
+        <helmet material="chainmail helmet" unbreakable="true">
+            <enchantment level="2">projectile_protection</enchantment>
+        </helmet>
+        <leggings material="iron leggings" unbreakable="true">
+            <enchantment level="2">projectile_protection</enchantment>
+        </leggings>
+        <effect duration="oo" amplifier="1">speed</effect>
+    </kit>
+    <kit id="red-kit" parents="spawn-kit">
+        <item slot="6" material="stained_glass" damage="14" amount="20"/>
+        <chestplate material="leather chestplate" color="993333" unbreakable="true">
+            <enchantment level="2">projectile_protection</enchantment>
+        </chestplate>
+        <boots material="leather boots" color="993333" unbreakable="true">
+            <enchantment level="2">projectile_protection</enchantment>
+        </boots>
+    </kit>
+    <kit id="blue-kit" parents="spawn-kit">
+        <item slot="6" material="stained_glass" damage="11" amount="20"/>
+        <chestplate material="leather chestplate" color="334CB2" unbreakable="true">
+            <enchantment level="2">projectile_protection</enchantment>
+        </chestplate>
+        <boots material="leather boots" color="334CB2" unbreakable="true">
+            <enchantment level="2">projectile_protection</enchantment>
+        </boots>
+    </kit>
+</kits>
+<spawns>
+    <spawn team="red-team" kit="red-kit" yaw="90">
+        <region>
+            <cylinder base="-174.5,21,66.5" radius="1" height="0"/>
+        </region>
+    </spawn>
+    <spawn team="red-team" kit="red-kit" yaw="180">
+        <region>
+            <cylinder base="-165.5,21,75.5" radius="1" height="0"/>
+        </region>
+    </spawn>
+    <spawn team="blue-team" kit="blue-kit" yaw="-90">
+        <region>
+            <cylinder base="-74.5,21,-164.5" radius="1" height="0"/>
+        </region>
+    </spawn>
+    <spawn team="blue-team" kit="blue-kit" yaw="0">
+        <region>
+            <cylinder base="-65.5,21,-173.5" radius="1" height="0"/>
+        </region>
+    </spawn>
+    <default yaw="135">
+        <region>
+            <cylinder base="49,103,-48" radius="1" height="0"/>
+        </region>
+    </default>
+</spawns>
+<destroyables name="Monument" materials="emerald_block">
+    <destroyable owner="red-team">
+        <region>
+            <cuboid min="62,29,119" max="57,36,124"/>
+        </region>
+    </destroyable> 
+    <destroyable owner="blue-team">
+        <region>
+            <cuboid min="38,29,-217" max="43,36,-222"/>
+        </region>
+    </destroyable>
+</destroyables>
+<cores name="Core" material="obsidian" leak="5">
+    <core team="red-team">
+        <region>
+            <cuboid min="217,29,-43" max="224,37,-36"/>
+        </region>
+    </core>
+    <core team="blue-team">
+        <region>
+            <cuboid min="-117,29,-55" max="-124,37,-62"/>
+        </region>
+    </core>
+</cores> 
+<control points recovery="1" decay="0" show-progress"true">
+    <control-point name="Town Hall" capture-time="25s">
+        <capture><cylinder base="0.5,21,0.5" radius="5" height="5"/></capture>
+        <progress><cylinder base="0.5,21,0.5" radius="5" height="5"/></progress>
+        <captured><cylinder base="0.5,21,0.5" radius="5" height="5"/></captured>
+    </control point>
+    <control-point name="Stadium Pit" capture-time="25s">
+        <capture><cylinder base="99.5,5,-98.5" radius="5" height="5"/></capture>
+        <progress><cylinder base="99.5,5,-98.5" radius="5" height="5"/></progress>
+        <captured><cylinder base="99.5,5,-98.5" radius="5" height="5"/></captured>
+    </control point>
+</control points>
+<filters>
+    <team id="only-orange">orange-team</team>
+    <team id="only-blue">blue-team</team>
+    <deny id="deny-void">
+        <void/>
+    </deny> 
+</filters>
+<regions>
+    <union id="spawns">
+        <union id="red-spawn">
+            <rectangle id="red-right" min="161,55" max="184,77"/>
+            <rectangle id="red-left" min="154,62" max="176,85"/>
+        <union id="blue-spawn">
+            <rectangle id="blue-right" min="-61,-153" max="-84,-175"/>
+            <rectangle id="blue-left" min="-54,-160" max="-76,-183"/>  
+    <complement id="exclude-spawns">
+        <union id="spawns"/> 
+        <rectangle id="full-map" min="-137,-236" max="238,139"/>
+    </complement>
