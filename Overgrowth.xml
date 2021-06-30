@@ -104,12 +104,12 @@
         </region>
     </core>
 </cores> 
-<control points recovery="1" decay="0" show-progress"true">
+<control-points recovery="1" decay="0" show-progress="true">
     <control-point name="Town Hall" capture-time="25s">
         <capture><cylinder base="0.5,21,0.5" radius="5" height="5"/></capture>
         <progress><cylinder base="0.5,21,0.5" radius="5" height="5"/></progress>
         <captured><cylinder base="0.5,21,0.5" radius="5" height="5"/></captured>
-    </control point>
+    </control-point>
     <control-point name="Stadium Pit" capture-time="25s">
         <capture><cylinder base="99.5,5,-98.5" radius="5" height="5"/></capture>
         <progress><cylinder base="99.5,5,-98.5" radius="5" height="5"/></progress>
@@ -137,9 +137,12 @@
         <union id="red-spawn">
             <rectangle id="red-right" min="161,55" max="184,77"/>
             <rectangle id="red-left" min="154,62" max="176,85"/>
+        </union>
         <union id="blue-spawn">
             <rectangle id="blue-right" min="-61,-153" max="-84,-175"/>
             <rectangle id="blue-left" min="-54,-160" max="-76,-183"/>  
+        </union>
+    </union>
     <complement id="exclude-spawns">
         <rectangle id="full-map" min="-137,-236" max="238,139"/>
         <union id="spawns"/> 
