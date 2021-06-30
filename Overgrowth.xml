@@ -117,11 +117,20 @@
     </control point>
 </control points>
 <filters>
-    <team id="only-orange">orange-team</team>
+    <team id="only-red">red-team</team>
     <team id="only-blue">blue-team</team>
     <deny id="deny-void">
         <void/>
     </deny> 
+    <any id="blocks">
+         <material>leaves:2</material>
+         <material>stone_slab</material>
+         <material>carpet</material>
+    </any>
+    <all id="player-blocks">
+        <material>stained_glass</material>
+        <cause>player</cause>
+    </all>
 </filters>
 <regions>
     <union id="spawns">
@@ -132,6 +141,24 @@
             <rectangle id="blue-right" min="-61,-153" max="-84,-175"/>
             <rectangle id="blue-left" min="-54,-160" max="-76,-183"/>  
     <complement id="exclude-spawns">
-        <union id="spawns"/> 
         <rectangle id="full-map" min="-137,-236" max="238,139"/>
+        <union id="spawns"/> 
     </complement>
+    <union id="tree-region-spawners">
+        <cuboid id="ne-spawner" min="158,19,-152" max="153,21,-157"/>
+        <cuboid id="sw-spawner" min="-58,19,54" max="-53,21,59"/>
+    </union>
+    <union id="player-region-spawner">
+        <cuboid id="ne-tree" min="166,18,-166" max="145,40,-143"/>
+        <cuboid id="sw-tree" min="-66,18,68" max="-45,40,45"/>
+    </union>
+<!-- applicators -->
+    <apply block="deny-void" region="exclude-spawns" message="You cannot edit the void!"/>
+    <apply enter="only-red" region="red-spawn" message="You cannot enter `4Red's `Cspawn!"/>
+    <apply enter="only-blue" region="blue-spawn" message="You cannot enter `9Blue's `Cspanwn!"/>
+    <apply block="never" region="spawns" message="You cannot edit the spawns!"/>
+    <apply block-break="blocks" region="exclude-spawns" message="You can only break `2Birch leaves`C, `7Slabs`C, and `5Player placed blocks`C!"/>
+    <apply block-place="deny-void" region="exclude-spawns" message="You cannot build in the void!"/>
+    <apply block-place="never" region="tree-region-spawners" message="You cannot edit the spawner regions!"/>
+</regions>   
+            
