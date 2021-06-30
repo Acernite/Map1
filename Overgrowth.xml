@@ -22,8 +22,8 @@
             <enchantment level="1">infinity</enchantment>
         </item>
         <item slot="2" material="diamond pickaxe" unbreakable="true"/>
-        <item slot="5" material="leaves" damage="2" amount="32"/>
-        <item slot="7" material="golden apple" amount="2"/>
+        <item slot="6" material="leaves" damage="2" amount="20"/>
+        <item slot="7" material="golden apple" amount="1"/>
         <item slot="8" material="golden_carrot" amount="64"/>
         <item slot="28" material="arrow" amount="1"/>
         <helmet material="chainmail helmet" unbreakable="true">
@@ -35,7 +35,7 @@
         <effect duration="oo" amplifier="1">speed</effect>
     </kit>
     <kit id="red-kit" parents="spawn-kit">
-        <item slot="6" material="stained_glass" damage="14" amount="20"/>
+        <item slot="5" material="stained_glass" damage="14" amount="32"/>
         <chestplate material="leather chestplate" color="993333" unbreakable="true">
             <enchantment level="2">projectile_protection</enchantment>
         </chestplate>
@@ -44,7 +44,7 @@
         </boots>
     </kit>
     <kit id="blue-kit" parents="spawn-kit">
-        <item slot="6" material="stained_glass" damage="11" amount="20"/>
+        <item slot="5" material="stained_glass" damage="11" amount="32"/>
         <chestplate material="leather chestplate" color="334CB2" unbreakable="true">
             <enchantment level="2">projectile_protection</enchantment>
         </chestplate>
@@ -161,4 +161,36 @@
     <apply block-place="deny-void" region="exclude-spawns" message="You cannot build in the void!"/>
     <apply block-place="never" region="tree-region-spawners" message="You cannot edit the spawner regions!"/>
 </regions>   
-            
+<itemkeep>
+    <item>emerald</item>
+</itemkeep>
+<itemremove>
+    <item>emerald</item>
+    <item>leather boots</item>
+    <item>leather chestplate</item>
+    <item>chainmail helmet</item>
+    <item>chainmail chestplate</item>
+    <item>iron chestplate</item>
+    <item>iron leggings</item>
+    <item>chainmail boots</item>
+    <item>iron boots</item>
+    <item>iron sword</item>
+    <item>stick</item>
+    <item>396</item>
+    <item>arrow</item>
+    <item>18:2</item>
+</itemremove>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+    <tool>diamond pickaxe</tool>
+</toolrepair>
+<maxbuildheight>50</maxbuildheight>
+<kill-rewards>
+    <kill-reward>
+        <item material="golden apple" amount="1"/>
+        <item material="emerald" amount="1"/>
+        <item material="leaves:2" amount="10"/>
+    </kill-reward>
+</kill-rewards>
+</map>
