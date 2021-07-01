@@ -155,10 +155,9 @@
         <cuboid id="sw-spawner" min="-58,19,54" max="-53,21,59"/>
     </union>
     <union id="player-region-spawner">
-        <cuboid id="ne-tree" min="166,18,-166" max="145,40,-143"/>
-        <cuboid id="sw-tree" min="-66,18,68" max="-45,40,45"/>
+        <point id="ne-tree">"155.5,21,-154.5"</point>
+        <point id="sw-tree">"-55.5,21,56.5"</point>
     </union>
-<!-- applicators -->
     <apply block="deny-void" region="exclude-spawns" message="You cannot edit the void!"/>
     <apply enter="only-red" region="red-spawn" message="You cannot enter `4Red's `Cspawn!"/>
     <apply enter="only-blue" region="blue-spawn" message="You cannot enter `9Blue's `Cspanwn!"/>
@@ -167,6 +166,11 @@
     <apply block-place="deny-void" region="exclude-spawns" message="You cannot build in the void!"/>
     <apply block-place="never" region="tree-region-spawners" message="You cannot edit the spawner regions!"/>
 </regions>   
+<spawners>
+    <spawner spawn-region="mid-spawner" player-region="player-region-spawner" min-delay="20s" max-delay="30s">
+        <item amount="1" material="golden apple"/>
+    </spawner>
+</spawners>
 <itemkeep>
     <item>emerald</item>
 </itemkeep>
