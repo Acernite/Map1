@@ -114,8 +114,8 @@
         <capture><cylinder base="99.5,5,-98.5" radius="5" height="5"/></capture>
         <progress><cylinder base="99.5,5,-98.5" radius="5" height="5"/></progress>
         <captured><cylinder base="99.5,5,-98.5" radius="5" height="5"/></captured>
-    </control point>
-</control points>
+    </control-point>
+</control-points>
 <score>
      <limit>500</limit>
 </score>
