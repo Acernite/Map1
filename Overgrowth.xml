@@ -116,6 +116,9 @@
         <captured><cylinder base="99.5,5,-98.5" radius="5" height="5"/></captured>
     </control point>
 </control points>
+<score>
+     <limit>500</limit>
+</score>
 <filters>
     <team id="only-red">red-team</team>
     <team id="only-blue">blue-team</team>
