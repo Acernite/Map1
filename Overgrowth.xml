@@ -2,7 +2,7 @@
 <map proto="1.4.0">
 <name>Overgrowth</name>
 <version>1.0.0</version>
-<objective>Capture points and reach 800 score to break the opponents monument and leak their core!</objective>
+<objective>Capture points and reach 500 score to break the opponents monument and leak their core!</objective>
 <gamemode>dtm</gamemode>
 <gamemode>dtc</gamemode>
 <gamemode>koth</gamemode>
@@ -12,8 +12,8 @@
     <author uuid="787c2738-70ba-4bfc-8faf-70ae9d87e5b9"/> <!--  uracils  -->
 </authors>
 <teams>
-    <team id="red-team" color="red" max="30">Red</team>
-    <team id="blue-team" color="blue" max="30">Blue</team>
+    <team id="red-team" color="red" max="50">Red</team>
+    <team id="blue-team" color="blue" max="50">Blue</team>
 </teams>  
 <kits>
     <kit id="spawn-kit">
@@ -56,12 +56,12 @@
 <spawns>
     <spawn team="red-team" kit="red-kit" yaw="90">
         <region>
-            <cylinder base="-174.5,21,66.5" radius="1" height="0"/>
+            <cylinder base="174.5,21,66.5" radius="1" height="0"/>
         </region>
     </spawn>
     <spawn team="red-team" kit="red-kit" yaw="180">
         <region>
-            <cylinder base="-165.5,21,75.5" radius="1" height="0"/>
+            <cylinder base="165.5,21,75.5" radius="1" height="0"/>
         </region>
     </spawn>
     <spawn team="blue-team" kit="blue-kit" yaw="-90">
@@ -104,7 +104,7 @@
         </region>
     </core>
 </cores> 
-<control-points recovery="1" decay="0" show-progress="true">
+<control-points recovery="1" decay="1" show-progress="true">
     <control-point name="Town Hall" capture-time="25s">
         <capture><cylinder base="0.5,21,0.5" radius="5" height="5"/></capture>
         <progress><cylinder base="0.5,21,0.5" radius="5" height="5"/></progress>
@@ -126,14 +126,20 @@
         <void/>
     </deny> 
     <any id="blocks">
-         <material>leaves:2</material>
-         <material>stone_slab</material>
-         <material>carpet</material>
+        <material>18:2</material>
+        <material>44:0</material>
+        <material>44:8</material>
+        <material>carpet</material>
+        <material>obsidian</material>
+        <material>emerald_block</material>
+        <material>31:1</material>
+        <material>38:1</material>
+        <material>38:2</material>
+        <material>95:14</material>
+        <material>95:11</material>
+        <material>139:0</material>
+        <material>139:1</material>      
     </any>
-    <all id="player-blocks">
-        <material>stained_glass</material>
-        <cause>player</cause>
-    </all>
 </filters>
 <regions>
     <union id="spawns">
@@ -148,26 +154,27 @@
     </union>
     <complement id="exclude-spawns">
         <rectangle id="full-map" min="-137,-236" max="238,139"/>
-        <union id="spawns"/> 
+        <region id="spawns"/> 
     </complement>
     <union id="tree-region-spawners">
-        <cuboid id="ne-spawner" min="158,19,-152" max="153,21,-157"/>
-        <cuboid id="sw-spawner" min="-58,19,54" max="-53,21,59"/>
+        <cuboid id="ne-spawner" min="158,19,-152" max="153,23,-157"/>
+        <cuboid id="sw-spawner" min="-58,19,54" max="-53,23,59"/>
     </union>
-    <union id="player-region-spawner">
-        <point id="ne-tree">"155.5,21,-154.5"</point>
-        <point id="sw-tree">"-55.5,21,56.5"</point>
-    </union>
-    <apply block="deny-void" region="exclude-spawns" message="You cannot edit the void!"/>
+    <point id="ne-tree">155.5,21,-154.5</point>
+    <point id="sw-tree">-55.5,21,56.5</point>
+<!-- applicators -->
+    <apply block="deny-void" region="full-map" message="You cannot edit the void!"/>
     <apply enter="only-red" region="red-spawn" message="You cannot enter `4Red's `Cspawn!"/>
     <apply enter="only-blue" region="blue-spawn" message="You cannot enter `9Blue's `Cspanwn!"/>
     <apply block="never" region="spawns" message="You cannot edit the spawns!"/>
-    <apply block-break="blocks" region="exclude-spawns" message="You can only break `2Birch leaves`C, `7Slabs`C, and `5Player placed blocks`C!"/>
-    <apply block-place="deny-void" region="exclude-spawns" message="You cannot build in the void!"/>
+    <apply block-break="blocks" region="exclude-spawns" message="You can only break player placed and monument/core blocks!"/>
     <apply block-place="never" region="tree-region-spawners" message="You cannot edit the spawner regions!"/>
 </regions>   
 <spawners>
-    <spawner spawn-region="mid-spawner" player-region="player-region-spawner" min-delay="20s" max-delay="30s">
+    <spawner spawn-region="ne-tree" player-region="ne-spawner" delay="20s">
+        <item amount="1" material="golden apple"/>
+    </spawner>
+    <spawner spawn-region="sw-tree" player-region="sw-spawner" delay="20s">
         <item amount="1" material="golden apple"/>
     </spawner>
 </spawners>
@@ -188,7 +195,10 @@
     <item>stick</item>
     <item>396</item>
     <item>arrow</item>
-    <item>18:2</item>
+    <item>obsidian</item>
+    <item>emerald_block</item>
+    <item>295</item>
+    <item>296</item>
 </itemremove>
 <toolrepair>
     <tool>stone sword</tool>
@@ -200,7 +210,7 @@
     <kill-reward>
         <item material="golden apple" amount="1"/>
         <item material="emerald" amount="1"/>
-        <item material="leaves:2" amount="10"/>
+        <item material="leaves" damage="2" amount="10"/>
     </kill-reward>
 </kill-rewards>
 </map>
