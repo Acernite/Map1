@@ -104,16 +104,16 @@
         </region>
     </core>
 </cores> 
-<control-points recovery="1" decay="1" show-progress="true">
+<control-points incremental="true" show-progress="true">
     <control-point name="Town Hall" capture-time="25s">
-        <capture><cylinder base="0.5,21,0.5" radius="5" height="5"/></capture>
-        <progress><cylinder base="0.5,21,0.5" radius="5" height="5"/></progress>
-        <captured><cylinder base="0.5,21,0.5" radius="5" height="5"/></captured>
+        <capture><cylinder base="0.5,21,0.5" radius="6" height="5"/></capture>
+        <progress><cylinder base="0.5,21,0.5" radius="6" height="5"/></progress>
+        <captured><cylinder base="0.5,21,0.5" radius="6" height="5"/></captured>
     </control-point>
     <control-point name="Stadium Pit" capture-time="25s">
-        <capture><cylinder base="99.5,5,-98.5" radius="5" height="5"/></capture>
-        <progress><cylinder base="99.5,5,-98.5" radius="5" height="5"/></progress>
-        <captured><cylinder base="99.5,5,-98.5" radius="5" height="5"/></captured>
+        <capture><cylinder base="99.5,5,-98.5" radius="6" height="5"/></capture>
+        <progress><cylinder base="99.5,5,-98.5" radius="6" height="5"/></progress>
+        <captured><cylinder base="99.5,5,-98.5" radius="6" height="5"/></captured>
     </control-point>
 </control-points>
 <score>
@@ -162,6 +162,10 @@
     </union>
     <point id="ne-tree">155.5,21,-154.5</point>
     <point id="sw-tree">-55.5,21,56.5</point>
+    <union id="cp-block">
+        <cylinder id="thcp" base="0.5,21,0.5" radius="10" height="5"/>
+        <cylinder id="spcp" base="99.5,5,-98.5" radius="10" height="5"/>
+    </union>
 <!-- applicators -->
     <apply block="deny-void" region="full-map" message="You cannot edit the void!"/>
     <apply enter="only-red" region="red-spawn" message="You cannot enter `4Red's `Cspawn!"/>
@@ -169,6 +173,7 @@
     <apply block="never" region="spawns" message="You cannot edit the spawns!"/>
     <apply block-break="blocks" region="exclude-spawns" message="You can only break player placed and monument/core blocks!"/>
     <apply block-place="never" region="tree-region-spawners" message="You cannot edit the spawner regions!"/>
+    <apply block="never" region="cp-block" message="You cannot edit the capture points!"/>
 </regions>   
 <spawners>
     <spawner spawn-region="ne-tree" player-region="ne-spawner" delay="20s">
