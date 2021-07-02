@@ -2,7 +2,7 @@
 <map proto="1.4.0">
 <name>Overgrowth</name>
 <version>1.0.0</version>
-<objective>Capture points and reach 500 score to break the opponents monument and leak their core!</objective>
+<objective>Capture points in order to destroy the opponent's monument and leak their core!</objective>
 <gamemode>dtm</gamemode>
 <gamemode>dtc</gamemode>
 <gamemode>koth</gamemode>
@@ -22,9 +22,8 @@
             <enchantment level="1">infinity</enchantment>
         </item>
         <item slot="2" material="diamond pickaxe" unbreakable="true"/>
-        <item slot="6" material="leaves" damage="2" amount="20"/>
-        <item slot="7" material="golden apple" amount="1"/>
-        <item slot="8" material="golden_carrot" amount="64"/>
+        <item slot="7" material="leaves" damage="2" amount="20"/>
+        <item slot="8" material="golden apple" amount="1"/>
         <item slot="28" material="arrow" amount="1"/>
         <helmet material="chainmail helmet" unbreakable="true">
             <enchantment level="2">projectile_protection</enchantment>
@@ -35,7 +34,7 @@
         <effect duration="oo" amplifier="1">speed</effect>
     </kit>
     <kit id="red-kit" parents="spawn-kit">
-        <item slot="5" material="stained_glass" damage="14" amount="32"/>
+        <item slot="6" material="stained_glass" damage="14" amount="32"/>
         <chestplate material="leather chestplate" color="993333" unbreakable="true">
             <enchantment level="2">projectile_protection</enchantment>
         </chestplate>
@@ -44,7 +43,7 @@
         </boots>
     </kit>
     <kit id="blue-kit" parents="spawn-kit">
-        <item slot="5" material="stained_glass" damage="11" amount="32"/>
+        <item slot="6" material="stained_glass" damage="11" amount="32"/>
         <chestplate material="leather chestplate" color="334CB2" unbreakable="true">
             <enchantment level="2">projectile_protection</enchantment>
         </chestplate>
@@ -53,6 +52,9 @@
         </boots>
     </kit>
 </kits>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
 <spawns>
     <spawn team="red-team" kit="red-kit" yaw="90">
         <region>
@@ -105,41 +107,74 @@
     </core>
 </cores> 
 <control-points incremental="true" show-progress="true">
-    <control-point name="Town Hall" capture-time="25s">
+    <control-point id="town-hall" name="Town Hall" capture-time="25s">
         <capture><cylinder base="0.5,21,0.5" radius="6" height="5"/></capture>
         <progress><cylinder base="0.5,21,0.5" radius="6" height="5"/></progress>
         <captured><cylinder base="0.5,21,0.5" radius="6" height="5"/></captured>
     </control-point>
-    <control-point name="Stadium Pit" capture-time="25s">
+    <control-point id="stadium-pit" name="Stadium Pit" capture-time="25s">
         <capture><cylinder base="99.5,5,-98.5" radius="6" height="5"/></capture>
         <progress><cylinder base="99.5,5,-98.5" radius="6" height="5"/></progress>
         <captured><cylinder base="99.5,5,-98.5" radius="6" height="5"/></captured>
     </control-point>
 </control-points>
-<score>
-     <limit>500</limit>
-</score>
 <filters>
     <team id="only-red">red-team</team>
     <team id="only-blue">blue-team</team>
     <deny id="deny-void">
         <void/>
     </deny> 
+    <all id="th">
+        <objective>town-hall</objective>
+    </all>
+    <all id="sp">
+        <objective>stadium-pit</objective>
+    </all>
     <any id="blocks">
-        <material>18:2</material>
         <material>44:0</material>
         <material>44:8</material>
         <material>carpet</material>
-        <material>obsidian</material>
-        <material>emerald_block</material>
         <material>31:1</material>
         <material>38:1</material>
         <material>38:2</material>
         <material>95:14</material>
         <material>95:11</material>
         <material>139:0</material>
-        <material>139:1</material>      
+        <material>139:1</material>   
+        <material>18:2</material>   
+        <material>11</material>
+        <material>10</material>
     </any>
+    <any id="monu">
+        <material>139:0</material>
+        <material>139:1</material> 
+        <material>44:0</material>
+        <material>44:8</material>
+        <filter id="monument-break"/>
+    </any>
+    <any id="core">
+        <material>139:0</material>
+        <material>139:1</material> 
+        <material>44:0</material>
+        <material>44:8</material>
+        <filter id="core-break"/>
+    </any>
+    <all id="monument-break">
+        <material>emerald_block</material>
+        <filter id="th"/>
+    </all>
+    <all id="core-break">
+        <material>obsidian</material>
+        <filter id="sp"/>
+    </all> 
+    <union id="core-regions">
+        <cuboid min="217,29,-43" max="224,37,-36"/>
+        <cuboid min="-117,29,-55" max="-124,37,-62"/>
+    </union>
+    <union id="monument-regions">
+        <cuboid min="62,29,119" max="57,36,124"/>
+        <cuboid min="38,29,-217" max="43,36,-222"/> 
+    </union>
 </filters>
 <regions>
     <union id="spawns">
@@ -171,9 +206,11 @@
     <apply enter="only-red" region="red-spawn" message="You cannot enter `4Red's `Cspawn!"/>
     <apply enter="only-blue" region="blue-spawn" message="You cannot enter `9Blue's `Cspanwn!"/>
     <apply block="never" region="spawns" message="You cannot edit the spawns!"/>
-    <apply block-break="blocks" region="exclude-spawns" message="You can only break player placed and monument/core blocks!"/>
     <apply block-place="never" region="tree-region-spawners" message="You cannot edit the spawner regions!"/>
     <apply block="never" region="cp-block" message="You cannot edit the capture points!"/>
+    <apply block-break="monu" region="monument-regions" message="You can only damage the monument when you control Town Hall!"/>
+    <apply block-break="core" region="core-regions" message="You can only damage the core when you control Stadium Pit!"/>
+    <apply block-break="blocks" region="exclude-spawns" message="You cannot break this block!"/>
 </regions>   
 <spawners>
     <spawner spawn-region="ne-tree" player-region="ne-spawner" delay="20s">
@@ -204,6 +241,9 @@
     <item>emerald_block</item>
     <item>295</item>
     <item>296</item>
+    <item>18:2</item>
+    <item>95:11</item>
+    <item>95:14</item>
 </itemremove>
 <toolrepair>
     <tool>stone sword</tool>
