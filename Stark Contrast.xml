@@ -58,12 +58,12 @@
 <spawns>
     <spawn team="white-team" kit="white-kit" yaw="180">
         <region>
-            <cylinder id="white-drop" base="0.5,86,134.5" radius="1" height="0"/>
+            <cylinder id="white-drop" base="0.5,87,134.5" radius="1" height="0"/>
         </region>
     </spawn>
      <spawn team="black-team" kit="black-kit" yaw="0">
         <region>
-            <cylinder id="black-drop" base="0.5,86,-133.5" radius="1" height="0"/>
+            <cylinder id="black-drop" base="0.5,87,-133.5" radius="1" height="0"/>
         </region>
     </spawn>
     <default yaw="-90">
@@ -73,17 +73,17 @@
     </default>
 </spawns>
 <wools craftable="false">
-    <wool team="white-team" color="black" location="-53.5,10,-152.5">
-        <monument><block>-1.5,10,65.5</block></monument>
+    <wool team="white-team" color="black" location="-53.5,11,-152.5">
+        <monument><block>-1.5,11,65.5</block></monument>
     </wool>
-    <wool team="white-team" color="gray" location="54.5,10,-152.5">
-        <monument><block>2.5,10,65.5</block></monument>
+    <wool team="white-team" color="gray" location="54.5,11,-152.5">
+        <monument><block>2.5,11,65.5</block></monument>
     </wool>   
-    <wool team="black-team" color="white" location="54.5,10,153.5">
-        <monument><block>2.5,10,-64.5</block></monument>
+    <wool team="black-team" color="white" location="54.5,11,153.5">
+        <monument><block>2.5,11,-64.5</block></monument>
     </wool>                          
-    <wool team="black-team" color="silver" location="-53.5,10,153.5">
-        <monument><block>-1.5,10,-64.5</block></monument>
+    <wool team="black-team" color="silver" location="-53.5,11,153.5">
+        <monument><block>-1.5,11,-64.5</block></monument>
     </wool>
 </wools>
 <filters>
@@ -138,10 +138,10 @@
         <region id="blacks-woolrooms"/>
     </union>
     <union id="monuments">
-        <cuboid id="white-monument" min="-3,7,-67" max="4,14,-62"/>
-        <cuboid id="black-monument" min="4,7,68" max="-3,14,63"/>
+        <cuboid id="white-monument" min="-3,7,-67" max="4,15,-62"/>
+        <cuboid id="black-monument" min="4,7,68" max="-3,15,63"/>
     </union>
-    <cuboid id="spawner" min="-1,4,-1" max="2,8,2"/>
+    <cuboid id="spawner" min="-1,4,-1" max="2,9,2"/>
     <apply block="deny-void" region="full-map" message="You cannot build in the void!"/>
     <apply block-place="never" region="woolrooms" message="You cannot place blocks in the woolrooms!"/>
     <apply block-break="white-woolroom-filter" region="whites-woolrooms" message="You can only break webs and stained glass in the woolrooms!"/>
