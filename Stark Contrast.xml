@@ -12,7 +12,7 @@
 </authors>
 <teams>
     <team id="white-team" color="white" max="32">Blanc</team>
-    <team id="black-team" color="black" max="32">Noir</team>
+    <team id="black-team" color="dark_gray" max="32">Noir</team>
 </teams>  
 <kits>
     <kit id="spawn-kit">
@@ -102,7 +102,7 @@
         <material>stained_glass:15</material>
     </any>
     <all id="black-woolroom-filter">
-        <team>blue-team</team>
+        <team>black-team</team>
         <filter id="woolroom-materials-black"/>   
     </all>
     <any id="woolroom-materials-black">
@@ -141,6 +141,7 @@
         <cuboid id="white-monument" min="-3,7,-67" max="4,14,-62"/>
         <cuboid id="black-monument" min="4,7,68" max="-3,14,63"/>
     </union>
+    <cuboid id="spawner" min="-1,4,-1" max="2,8,2"/>
     <apply block="deny-void" region="full-map" message="You cannot build in the void!"/>
     <apply block-place="never" region="woolrooms" message="You cannot place blocks in the woolrooms!"/>
     <apply block-break="white-woolroom-filter" region="whites-woolrooms" message="You can only break webs and stained glass in the woolrooms!"/>
@@ -148,10 +149,11 @@
     <apply block="never" region="monuments" message="You cannot edit the victory monuments!"/>
     <apply block-place="only-renewable" region="spawns" message="You can only break iron in spawn!"/>
     <apply block-break="only-iron" region="spawns" message="You can only break iron in spawn!"/>
-    <apply enter="only-white" region="white-spawn" message="You cannot enter `FWhite's `Cspawn!"/>
-    <apply enter="only-black" region="black-spawn" message="You cannot enter `0Black's `Cspawn!"/>
+    <apply enter="only-white" region="white-spawn" message="You cannot enter `FBlanc's `Cspawn!"/>
+    <apply enter="only-black" region="black-spawn" message="You cannot enter `8Noir's `Cspawn!"/>
     <apply enter="only-white" region="whites-woolrooms" message="You cannot enter your own woolroom!"/>
     <apply enter="only-black" region="blacks-woolrooms" message="You cannot enter your own woolroom!"/>
+    <apply block="never" region="spawner" message="You cannot edit the spawner region!"/>
 </regions>
 <respawn delay="2.5s"/>        
 <renewables>
