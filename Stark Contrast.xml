@@ -121,7 +121,7 @@
 </filters>
 <regions>
     <rectangle id="full-map" min="-70,-171" max="70,171"/>
-    <union id="spawns"/>
+    <union id="spawns">
         <rectangle id="white-spawn" min="18,152" max="-17,118"/>
         <rectangle id="black-spawn" min="-17,-151" max="18,-117"/>
     </union>
@@ -133,13 +133,14 @@
         <rectangle id="white-woolroom" min="43,141" max="66,165"/>
         <rectangle id="silver-woolroom" min="-42,141" max="-65,165"/>
     </union> 
-    <union id="woolrooms"/>
+    <union id="woolrooms">
         <region id="whites-woolrooms"/>
         <region id="blacks-woolrooms"/>
     </union>
     <union id="monuments">
         <cuboid id="white-monument" min="-3,7,-67" max="4,14,-62"/>
         <cuboid id="black-monument" min="4,7,68" max="-3,14,63"/>
+    </union>
     <apply block="deny-void" region="full-map" message="You cannot build in the void!"/>
     <apply block-place="never" region="woolrooms" message="You cannot place blocks in the woolrooms!"/>
     <apply block-break="white-woolroom-filter" region="whites-woolrooms" message="You can only break webs and stained glass in the woolrooms!"/>
