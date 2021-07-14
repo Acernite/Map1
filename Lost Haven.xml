@@ -146,6 +146,30 @@
     <!-- blue's portal destinations -->
     <cuboid id="spawn1" min="2,22,185" max="-1,22,187"/> <!-- blue spawn 1st level -->
     <cuboid id="spawn2" min="2,35,183" max="-1,35,185"/> <!-- blue spawn 2nd level -->
+    <point id="GLL1">-109.5,22,148.5</point> <!-- green woolroom lower level -->
+    <point id="GLL2">-109.5,22,156.5</point>
+    <point id="GLL3">-117.5,22,156.5</point>
+    <point id="GLL4">-117.5,22,148.5</point>
+    <point id="GUL1">-110.5,30,149.5</point> <!-- green woolroom upper level -->
+    <point id="GUL2">-110.5,30,155.5</point>
+    <point id="GUL3">-116.5,30,155.5</point>
+    <point id="GUL4">-116.5,30,149.5</point>
+    <point id="CLL1">-3.5,33,115.5</point> <!-- cyan woolroom lower level -->
+    <point id="CLL2">-3.5,33,107.5</point>
+    <point id="CLL3">4.5,33,107.5</point>
+    <point id="CLL4">4.5,33,115.5</point>
+    <point id="CUL1">-2.5,41,114.5</point> <!-- cyan woolroom upper level -->
+    <point id="CUL2">-2.5,41,108.5</point>
+    <point id="CUL3">3.5,41,108.5</point>
+    <point id="CUL4">3.5,41,114.5</point>
+    <point id="LBLL1">110.5,22,156.5</point> <!-- light blue woolroom lower level -->
+    <point id="LBLL2">110.5,22,148.5</point>
+    <point id="LBLL3">118.5,22,148.5</point>
+    <point id="LBLL4">118.5,22,156.5</point>
+    <point id="LBUL1">111.5,30,155.5</point> <!-- light blue woolroom upper level -->
+    <point id="LBUL2">111.5,30,149.5</point>
+    <point id="LBUL3">117.5,30,149.5</point>
+    <point id="LBUL4">117.5,30,155.5</point>
    
     <cuboid id="purple-destination-out" min="-152,18,-1" max="-150,18,2"/> <!-- purple's portal outside -->
     <cylinder id="purple-destination-spawn" base="-227.5,39,0.5" radius="1.5" height="0"/> <!-- purple's portal at spawn -->
