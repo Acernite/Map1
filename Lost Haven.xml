@@ -56,6 +56,14 @@
              <enchantment level="2">projectile_protection</enchantment>
         </boots>
     </kit>
+    <kit id="main-kit" force="true">
+        <effect duration="0" amplifier="2">speed</effect>
+        <effect duration="0" amplifier="2">fast_digging</effect>
+    </kit>
+    <kit id="potion-kit">
+        <effect duration="oo" amplifier="1">speed</effect>
+        <effect duration="oo" amplifier="1">fast_digging</effect>
+    </kit>
 </kits>
 <spawns>
     <spawn team="orange-team" kit="orange-kit" yaw="0">
@@ -132,19 +140,26 @@
         <material>vine</material>
         <material>iron_block</material>
     </any>
-    <all id="cp">
+    <all id="orange-capture">
         <objective>sanctuary</objective>
+        <team>orange-team</team>
     </all>
-    <all id="cp-blue">
+    <all id="blue-capture">
         <objective>sanctuary</objective>
         <team>blue-team</team>
     </all>
-    <effect id="speed" amplifier="1">speed</effect>
-        <objective>sanctuary</objective>
-    </effect>
-    <effect id="haste" amplifier="1">fast_digging<effect>
-        <objective>sanctuary</objective>
-    </effect>
+    <all id="orange-lost">
+        <not>
+            <objective>sanctuary</objective>
+        </not>
+        <team>orange-team</team>
+    </all>
+    <all id="blue-lost">
+        <not>
+            <objective>sanctuary</objective>
+        </not>
+        <team>blue-team</team>
+    </all>
 </filters>
 <regions>
     <!-- main regions -->
@@ -153,7 +168,7 @@
         <rectangle id="blue-spawn" min="-33,165" max="35,199"/>
         <rectangle id="orange-spawn" min="34,-164" max="-34,-199"/>
     </union>
-    <cylinder id="capture-point" base="0.5,10,0.5" radius="8" height="14"/>
+    <cylinder id="capture-point" base="0.5,10,0.5" radius="9" height="14"/>
     <!-- woolrooms -->
     <union id="woolrooms">
         <union id="yrp-woolrooms">
@@ -173,6 +188,7 @@
         <cuboid min="35,0,-195" max="130,10,-31"/>
         <cuboid min="-34,10,-195" max="-130,10,-31"/>
         <cuboid min="35,0,-67" max="-34,4,68"/>    
+    </union>
     <union id="grid"> <!-- very long -->
         <rectangle min="-128,195" max="-127,-195"/>
         <rectangle min="-127,195" max="-126,-195"/>
@@ -453,8 +469,9 @@
     <apply block="never" region="capture-point" message="You cannot edit the capture region!"/>
     <apply enter="only-orange" region="lbcg-woolrooms" message="You cannot enter your own woolroom!"/>
     <apply enter="only-blue" region="yrp-woolrooms" message="You cannot enter your own woolroom!"/>
-    <apply filter="speed"/>
-    <apply filter="haste"/>
+    <apply block="never" region="no-underbridge" message="You cannot build here!"/>
+    <apply kit="potion-kit" region="grid" filter="orange-capture"/>
+    <apply kit="potion-kit" region="grid" filter="blue-capture"/>
 </regions>
 <portals>
     <portal yaw="0">
