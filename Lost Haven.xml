@@ -97,18 +97,16 @@
 <filters>
     <team id="only-orange">orange-team</team>
     <team id="only-blue">blue-team</team>
-    <deny id="deny-team-void">
+    <deny id="deny-void">
         <void/>
     </deny> 
     <all id="orange-woolroom-filter">
         <team>orange-team</team>
         <material>web</material>
-        <region id="orange-woolrooms"/>
     </all>
     <all id="blue-woolroom-filter">
         <team>blue-team</team>
         <material>web</material> 
-        <region id="blues-woolrooms"/>   
     </all>
     <material id="only-iron">iron block</material>
     <material id="only-air">air</material>
@@ -120,6 +118,7 @@
     </all>
     <any id="spawn-perms">
         <material>leaves</material>
+        <material>vine</material>
         <filter id="only-renewable"/>
     </any>
 </filters>
@@ -130,22 +129,50 @@
         <rectangle id="blue-spawn" min="-33,165" max="35,199"/>
         <rectangle id="orange-spawn" min="34,-164" max="-34,-199"/>
     </union>
+    <cylinder id="capture-point" base="0.5,10,0.5" radius="7" height="14"/>
     <!-- woolrooms -->
-    <union id="yrp-woolrooms">
-        <cylinder id="yellow-woolroom" base="114.5,0,-151.5" radius="9" height="oo"/>
-        <cylinder id="red-woolroom" base="0.5,27,-110.5" radius="9" height="oo"/>
-        <cylinder id="yellow-woolroom" base="-113.5,0,-151.5" radius="9" height="oo"/>
-    </union>
-    <union id="lbcg-woolrooms">
-        <cylinder id="light-blue-woolroom" base="114.5,0,152.5" radius="9" height="oo"/>
-        <cylinder id="cyan-woolroom" base="0.5,27,111.5" radius="9" height="oo"/>
-        <cylinder id="green-woolroom" base="-113.5,0,152.5" radius="9" height="oo"/>
+    <union id="woolrooms">
+        <union id="yrp-woolrooms">
+            <cylinder id="yellow-woolroom" base="114.5,0,-151.5" radius="9" height="oo"/>
+            <cylinder id="red-woolroom" base="0.5,27,-110.5" radius="9" height="oo"/>
+            <cylinder id="yellow-woolroom" base="-113.5,0,-151.5" radius="9" height="oo"/>
+        </union>
+        <union id="lbcg-woolrooms">
+            <cylinder id="light-blue-woolroom" base="114.5,0,152.5" radius="9" height="oo"/>
+            <cylinder id="cyan-woolroom" base="0.5,27,111.5" radius="9" height="oo"/>
+            <cylinder id="green-woolroom" base="-113.5,0,152.5" radius="9" height="oo"/>
+        </union>
     </union>
     <!-- orange's portal destinations -->
-    
+    <cuboid id="ospawn1" min="-1,22,-184" max="2,22,-186"/> <!-- orange spawn 1st level -->
+    <cuboid id="ospawn2" min="-1,35,-182" max="2,35,-184"/> <!-- orange spawn 2nd level -->
+    <point id="YLL1">110.5,22,-147.5</point> <!-- yellow woolroom lower level -->
+    <point id="YLL2">110.5,22,-155.5</point>
+    <point id="YLL3">118.5,22,-155.5</point>
+    <point id="YLL4">118.5,22,-147.5</point>
+    <point id="YUL1">111.5,30,-148.5</point> <!-- yellow woolroom upper level -->
+    <point id="YUL2">111.5,30,-154.5</point>
+    <point id="YUL3">117.5,30,-154.5</point>
+    <point id="YUL4">117.5,30,-148.5</point>
+    <point id="RLL1">4.5,33,-114.5</point> <!-- red woolroom lower level -->
+    <point id="RLL2">4.5,33,-106.5</point>
+    <point id="RLL3">-3.5,33,-106.5</point>
+    <point id="RLL4">-3.5,33,-114.5</point>
+    <point id="RUL1">3.5,41,-113.5</point> <!-- red woolroom upper level -->
+    <point id="RUL2">3.5,41,-107.5</point>
+    <point id="RUL3">-2.5,41,-107.5</point>
+    <point id="RUL4">-2.5,41,-113.5</point>
+    <point id="PLL1">-109.5,22,-155.5</point> <!-- pink woolroom lower level -->
+    <point id="PLL2">-109.5,22,-147.5</point>
+    <point id="PLL3">-117.5,22,-147.5</point>
+    <point id="PLL4">-117.5,22,-155.5</point>
+    <point id="PUL1">-110.5,30,-154.5</point> <!-- pink woolroom upper level -->
+    <point id="PUL2">-110.5,30,-148.5</point>
+    <point id="PUL3">-116.5,30,-148.5</point>
+    <point id="PUL4">-116.5,30,-154.5</point>
     <!-- blue's portal destinations -->
-    <cuboid id="spawn1" min="2,22,185" max="-1,22,187"/> <!-- blue spawn 1st level -->
-    <cuboid id="spawn2" min="2,35,183" max="-1,35,185"/> <!-- blue spawn 2nd level -->
+    <cuboid id="bspawn1" min="2,22,185" max="-1,22,187"/> <!-- blue spawn 1st level -->
+    <cuboid id="bspawn2" min="2,35,183" max="-1,35,185"/> <!-- blue spawn 2nd level -->
     <point id="GLL1">-109.5,22,148.5</point> <!-- green woolroom lower level -->
     <point id="GLL2">-109.5,22,156.5</point>
     <point id="GLL3">-117.5,22,156.5</point>
@@ -170,23 +197,17 @@
     <point id="LBUL2">111.5,30,149.5</point>
     <point id="LBUL3">117.5,30,149.5</point>
     <point id="LBUL4">117.5,30,155.5</point>
-   
-    <cuboid id="purple-destination-out" min="-152,18,-1" max="-150,18,2"/> <!-- purple's portal outside -->
-    <cylinder id="purple-destination-spawn" base="-227.5,39,0.5" radius="1.5" height="0"/> <!-- purple's portal at spawn -->
-    <cuboid id="blue-destination-out" min="97,18,2" max="95,18,-1"/> <!-- blue's portal outside -->
-    <cylinder id="blue-destination-spawn" base="172.5,39,0.5" radius="1.5" height="0"/> <!-- blue's portal at spawn -->                         
-    <union id="no-build-portal">
-        <cuboid id="purple-portal" min="-156,18,4" max="-151,24,-3"/>
-        <cuboid id="blue-portal" min="101,18,-3" max="96,24,4"/> 
-    </union>                                    
-    <!-- woolrooms -->
-    <union id="woolrooms">
-        <union id="purples-woolrooms">
-            <cylinder base="139,0,-37" radius="9.5" height="oo" id="green-woolroom"/>
-            <cylinder base="139,0,38" radius="9.5" height="oo" id="cyan-woolroom"/>
-        </union>
-        <union id="blues-woolrooms">
-            <cylinder base="-194,0,38" radius="9.5" height="oo" id="magenta-woolroom"/>
-            <cylinder base="-194,0,-37" radius="9.5" height="oo" id="pink-woolroom"/>
-        </union>
-    </union>
+    <!-- apply -->
+    <apply block-place="deny-void" region="entire-map" message="You cannot build in the void!"/>
+    <apply block="spawn-perms" region="spawns" message="You can only break iron in spawn!"/>
+    <apply enter="only-orange" region="orange-spawn" message="You cannot enter `6Orange's `Cspawn!"/>
+    <apply enter="only-blue" region="blue-spawn" message="You cannot enter `9Blue's `Cspawn!"/>
+    <apply block-break="orange-woolroom-filter" region="lbcg-woolrooms" message="You can only break cobwebs in the woolrooms!"/>
+    <apply block-break="blue-woolroom-filter" region="yrp-woolrooms" message="You can only break cobwebs in the woolrooms!"/>
+    <apply block-place="never" region="woolrooms" message="You cannot place blocks in the woolrooms!"/>
+    <apply block="never" region="capture-point" message="You cannot edit the capture region!"/>
+    <apply enter="only-orange" region="lbcg-woolrooms" message="You cannot enter your own woolroom!"/>
+    <apply enter="only-blue" region="yrp-woolrooms" message="You cannot enter your own woolroom!"/>
+</regions>
+<portals>
+    
