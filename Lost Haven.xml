@@ -94,6 +94,13 @@
         <monument><block>2.5,36,174.5</block></monument>
     </wool>
 </wools>
+<control-points incremental="true" show-progress="true">
+    <control-point id="sanctuary" name="Old Sanctuary" capture-time="25s">
+        <capture><cylinder base="0.5,10,0.5" radius="7" height="14"/></capture>
+        <progress><cylinder base="0.5,10,0.5" radius="7" height="14"/></progress>
+        <captured><cylinder base="0.5,10,0.5" radius="7" height="14"/></captured>
+    </control-point>
+</control-points>
 <filters>
     <team id="only-orange">orange-team</team>
     <team id="only-blue">blue-team</team>
@@ -103,10 +110,12 @@
     <all id="orange-woolroom-filter">
         <team>orange-team</team>
         <material>web</material>
+        <material>vine</material>
     </all>
     <all id="blue-woolroom-filter">
         <team>blue-team</team>
         <material>web</material> 
+        <material>vine</material>
     </all>
     <material id="only-iron">iron block</material>
     <material id="only-air">air</material>
@@ -121,6 +130,14 @@
         <material>vine</material>
         <filter id="only-renewable"/>
     </any>
+    <all id="cp-orange">
+        <objective>sanctuary</objective>
+        <team>orange-team</team>
+    </all>
+    <all id="cp-blue">
+        <objective>sanctuary</objective>
+        <team>blue-team</team>
+    </all>
 </filters>
 <regions>
     <!-- main regions -->
@@ -208,6 +225,10 @@
     <apply block="never" region="capture-point" message="You cannot edit the capture region!"/>
     <apply enter="only-orange" region="lbcg-woolrooms" message="You cannot enter your own woolroom!"/>
     <apply enter="only-blue" region="yrp-woolrooms" message="You cannot enter your own woolroom!"/>
+    <effect id="cp-orange" amplifier="1">speed</effect> 
+    <effect id="cp-orange" amplifier="1">fast_digging</effect> 
+    <effect id="cp-blue" amplifier="1">speed</effect> 
+    <effect id="cp-blue" amplifier="1">fast_digging</effect> 
 </regions>
 <portals>
     <portal>
@@ -522,4 +543,54 @@
         <destination>
             <point id="LBLL4">118.5,22,156.5</point>
     </portal>
-        
+</portals>
+<renewables>
+    <renewable interval="5" sound="true" particles="true" region="everywhere" renew-filter="only-iron" replace-filter="only-air" avoid-players="2"/>
+</renewables> 
+<itemremove>
+    <item>stained_clay:1</item>
+    <item>stained_clay:11</item>
+    <item>wood:5</item>
+    <item>wood_step:5</item>
+    <item>dark_oak_stairs</item>
+    <item>wood:1</item>
+    <item>wood_step:1</item>
+    <item>spruce_wood_stairs</item>
+    <item>leaves</item>
+    <item>gravel</item>
+    <item>flint</item>
+    <item>stone:5</item>
+    <item>stone:3</item>
+    <item>mossy_cobblestone</item>
+    <item>spruce_fence</item>
+    <item>dark_oak_fence</item>
+    <item>seeds</item>
+    <item>vine</item>
+    <item>string</item>
+    <item>golden_carrot</item>
+    <item>iron_sword</item>
+    <item>bucket</item>
+    <item>leather_chestplate</item>
+    <item>leather_boots</item>
+    <item>arrow</item>
+    <item>sapling</item>
+    <item>book</item>
+    <item>bed</item>
+    <item>dirt:1</item>
+    <item>log:1</item>
+</itemremove>
+<crafting>
+    <disable>ink_sack</disable>
+</crafting>
+<toolrepair>
+    <tool>diamond pickaxe</tool>
+    <tool>iron axe</tool>
+    <tool>iron spade</tool>
+</toolrepair>
+<maxbuildheight>45</maxbuildheight>
+<kill-rewards>
+    <kill-reward>
+        <item material="golden apple" amount="1"/>
+    </kill-reward>
+</kill-rewards>
+</map>
