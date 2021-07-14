@@ -10,7 +10,7 @@
     <author uuid="787c2738-70ba-4bfc-8faf-70ae9d87e5b9"/> <!--  uracils  -->
 </authors>
 <teams>
-    <team id="orange-team" color="gold" max="50">Purple</team>
+    <team id="orange-team" color="gold" max="50">Orange</team>
     <team id="blue-team" color="blue" max="50">Blue</team>
 </teams>
 <kits>
@@ -94,7 +94,7 @@
         <monument><block>2.5,36,174.5</block></monument>
     </wool>
 </wools>
-<control-points incremental="true" show-progress="true">
+<control-points incremental="true" show-progress="true" required="false">
     <control-point id="sanctuary" name="Old Sanctuary" capture-time="25s">
         <capture><cylinder base="0.5,10,0.5" radius="7" height="14"/></capture>
         <progress><cylinder base="0.5,10,0.5" radius="7" height="14"/></progress>
@@ -109,14 +109,16 @@
     </deny> 
     <all id="orange-woolroom-filter">
         <team>orange-team</team>
-        <material>web</material>
-        <material>vine</material>
+        <filter id="woolroom-materials"/>
     </all>
     <all id="blue-woolroom-filter">
         <team>blue-team</team>
+        <filter id="woolroom-materials"/>
+    </all>
+    <any id="woolroom-materials">
         <material>web</material> 
         <material>vine</material>
-    </all>
+    </any>
     <material id="only-iron">iron block</material>
     <material id="only-air">air</material>
     <all id="only-renewable">
@@ -128,16 +130,21 @@
     <any id="spawn-perms">
         <material>leaves</material>
         <material>vine</material>
-        <filter id="only-renewable"/>
+        <material>iron_block</material>
     </any>
-    <all id="cp-orange">
+    <all id="cp">
         <objective>sanctuary</objective>
-        <team>orange-team</team>
     </all>
     <all id="cp-blue">
         <objective>sanctuary</objective>
         <team>blue-team</team>
     </all>
+    <effect id="speed" amplifier="1">speed</effect>
+        <objective>sanctuary</objective>
+    </effect>
+    <effect id="haste" amplifier="1">fast_digging<effect>
+        <objective>sanctuary</objective>
+    </effect>
 </filters>
 <regions>
     <!-- main regions -->
@@ -146,77 +153,24 @@
         <rectangle id="blue-spawn" min="-33,165" max="35,199"/>
         <rectangle id="orange-spawn" min="34,-164" max="-34,-199"/>
     </union>
-    <cylinder id="capture-point" base="0.5,10,0.5" radius="7" height="14"/>
+    <cylinder id="capture-point" base="0.5,10,0.5" radius="8" height="14"/>
     <!-- woolrooms -->
     <union id="woolrooms">
         <union id="yrp-woolrooms">
-            <cylinder id="yellow-woolroom" base="114.5,0,-151.5" radius="9" height="oo"/>
-            <cylinder id="red-woolroom" base="0.5,27,-110.5" radius="9" height="oo"/>
-            <cylinder id="yellow-woolroom" base="-113.5,0,-151.5" radius="9" height="oo"/>
+            <cylinder id="yellow-woolroom" base="114.5,0,-151.5" radius="10" height="oo"/>
+            <cylinder id="red-woolroom" base="0.5,27,-110.5" radius="10" height="oo"/>
+            <cylinder id="pink-woolroom" base="-113.5,0,-151.5" radius="10" height="oo"/>
         </union>
         <union id="lbcg-woolrooms">
-            <cylinder id="light-blue-woolroom" base="114.5,0,152.5" radius="9" height="oo"/>
-            <cylinder id="cyan-woolroom" base="0.5,27,111.5" radius="9" height="oo"/>
-            <cylinder id="green-woolroom" base="-113.5,0,152.5" radius="9" height="oo"/>
+            <cylinder id="light-blue-woolroom" base="114.5,0,152.5" radius="10" height="oo"/>
+            <cylinder id="cyan-woolroom" base="0.5,27,111.5" radius="10" height="oo"/>
+            <cylinder id="green-woolroom" base="-113.5,0,152.5" radius="10" height="oo"/>
         </union>
     </union>
-    <!-- orange's portal destinations -->
-    <cuboid id="ospawn1" min="-1,22,-184" max="2,22,-186"/> <!-- orange spawn 1st level -->
-    <cuboid id="ospawn2" min="-1,35,-182" max="2,35,-184"/> <!-- orange spawn 2nd level -->
-    <point id="YLL1">110.5,22,-147.5</point> <!-- yellow woolroom lower level -->
-    <point id="YLL2">110.5,22,-155.5</point>
-    <point id="YLL3">118.5,22,-155.5</point>
-    <point id="YLL4">118.5,22,-147.5</point>
-    <point id="YUL1">111.5,30,-148.5</point> <!-- yellow woolroom upper level -->
-    <point id="YUL2">111.5,30,-154.5</point>
-    <point id="YUL3">117.5,30,-154.5</point>
-    <point id="YUL4">117.5,30,-148.5</point>
-    <point id="RLL1">4.5,33,-114.5</point> <!-- red woolroom lower level -->
-    <point id="RLL2">4.5,33,-106.5</point>
-    <point id="RLL3">-3.5,33,-106.5</point>
-    <point id="RLL4">-3.5,33,-114.5</point>
-    <point id="RUL1">3.5,41,-113.5</point> <!-- red woolroom upper level -->
-    <point id="RUL2">3.5,41,-107.5</point>
-    <point id="RUL3">-2.5,41,-107.5</point>
-    <point id="RUL4">-2.5,41,-113.5</point>
-    <point id="PLL1">-109.5,22,-155.5</point> <!-- pink woolroom lower level -->
-    <point id="PLL2">-109.5,22,-147.5</point>
-    <point id="PLL3">-117.5,22,-147.5</point>
-    <point id="PLL4">-117.5,22,-155.5</point>
-    <point id="PUL1">-110.5,30,-154.5</point> <!-- pink woolroom upper level -->
-    <point id="PUL2">-110.5,30,-148.5</point>
-    <point id="PUL3">-116.5,30,-148.5</point>
-    <point id="PUL4">-116.5,30,-154.5</point>
-    <!-- blue's portal destinations -->
-    <cuboid id="bspawn1" min="2,22,185" max="-1,22,187"/> <!-- blue spawn 1st level -->
-    <cuboid id="bspawn2" min="2,35,183" max="-1,35,185"/> <!-- blue spawn 2nd level -->
-    <point id="GLL1">-109.5,22,148.5</point> <!-- green woolroom lower level -->
-    <point id="GLL2">-109.5,22,156.5</point>
-    <point id="GLL3">-117.5,22,156.5</point>
-    <point id="GLL4">-117.5,22,148.5</point>
-    <point id="GUL1">-110.5,30,149.5</point> <!-- green woolroom upper level -->
-    <point id="GUL2">-110.5,30,155.5</point>
-    <point id="GUL3">-116.5,30,155.5</point>
-    <point id="GUL4">-116.5,30,149.5</point>
-    <point id="CLL1">-3.5,33,115.5</point> <!-- cyan woolroom lower level -->
-    <point id="CLL2">-3.5,33,107.5</point>
-    <point id="CLL3">4.5,33,107.5</point>
-    <point id="CLL4">4.5,33,115.5</point>
-    <point id="CUL1">-2.5,41,114.5</point> <!-- cyan woolroom upper level -->
-    <point id="CUL2">-2.5,41,108.5</point>
-    <point id="CUL3">3.5,41,108.5</point>
-    <point id="CUL4">3.5,41,114.5</point>
-    <point id="LBLL1">110.5,22,156.5</point> <!-- light blue woolroom lower level -->
-    <point id="LBLL2">110.5,22,148.5</point>
-    <point id="LBLL3">118.5,22,148.5</point>
-    <point id="LBLL4">118.5,22,156.5</point>
-    <point id="LBUL1">111.5,30,155.5</point> <!-- light blue woolroom upper level -->
-    <point id="LBUL2">111.5,30,149.5</point>
-    <point id="LBUL3">117.5,30,149.5</point>
-    <point id="LBUL4">117.5,30,155.5</point>
     <!-- apply -->
-    <apply block-place="deny-void" region="entire-map" message="You cannot build in the void!"/>
-    <apply block="spawn-perms" region="spawns" message="You can only break iron in spawn!"/>
+    <apply block="deny-void" region="entire-map" message="You cannot build in the void!"/>
+    <apply block-place="only-renewable" region="spawns" message="You can only break iron in spawn!"/>
+    <apply block-break="spawn-perms" region="spawns" message="You can only break iron in spawn!"/>
     <apply enter="only-orange" region="orange-spawn" message="You cannot enter `6Orange's `Cspawn!"/>
     <apply enter="only-blue" region="blue-spawn" message="You cannot enter `9Blue's `Cspawn!"/>
     <apply block-break="orange-woolroom-filter" region="lbcg-woolrooms" message="You can only break cobwebs in the woolrooms!"/>
@@ -225,323 +179,373 @@
     <apply block="never" region="capture-point" message="You cannot edit the capture region!"/>
     <apply enter="only-orange" region="lbcg-woolrooms" message="You cannot enter your own woolroom!"/>
     <apply enter="only-blue" region="yrp-woolrooms" message="You cannot enter your own woolroom!"/>
-    <effect id="cp-orange" amplifier="1">speed</effect> 
-    <effect id="cp-orange" amplifier="1">fast_digging</effect> 
-    <effect id="cp-blue" amplifier="1">speed</effect> 
-    <effect id="cp-blue" amplifier="1">fast_digging</effect> 
+    <apply filter="speed"/>
+    <apply filter="haste"/>
 </regions>
 <portals>
-    <portal>
+    <portal yaw="0">
         <region>
             <cuboid min="-1,22,-187" max="2,24,-188"/></region>
         <destination>
             <cuboid id="ospawn2" min="-1,35,-182" max="2,35,-184"/>
+        </destination>
     </portal>
-    <portal>
+    <portal yaw="0">
         <region>
             <cuboid min="-1,35,-185" max="2,37,-186"/></region>
         <destination>
             <cuboid id="ospawn1" min="-1,22,-184" max="2,22,-186"/>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="110,22,-147" max="109,23,-146"/></region>
         <destination>
             <point id="YUL1">111.5,30,-148.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="110,22,-156" max="109,23,-157"/></region>
         <destination>
             <point id="YUL2">111.5,30,-154.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="119,22,-156" max="120,23,-157"/></region>
         <destination>
             <point id="YUL3">117.5,30,-154.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
-            <cuboid min="-119,22,-147" max="120,23,-146"/></region>
+            <cuboid min="119,22,-147" max="120,23,-146"/></region>
         <destination>
             <point id="YUL4">117.5,30,-148.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="111,30,-148" max="110,31,-147"/></region>
         <destination>
             <point id="YLL1">110.5,22,-147.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="111,30,-155" max="110,31,-156"/></region>
         <destination>
             <point id="YLL2">110.5,22,-155.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="118,30,-155" max="119,31,-156"/></region>
         <destination>
             <point id="YLL3">118.5,22,-155.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="118,30,-148" max="119,31,-147"/></region>
         <destination>
             <point id="YLL4">118.5,22,-147.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="5,33,-115" max="6,34,-116"/></region>
         <destination>
             <point id="RUL1">3.5,41,-113.5</point>
+        </destination>
     </portal>   
     <portal>
         <region>
             <cuboid min="5,33,-106" max="6,34,-105"/></region>
         <destination>
             <point id="RUL2">3.5,41,-107.5</point>
+        </destination>
     </portal>  
     <portal>
         <region>
             <cuboid min="-4,33,-106" max="-5,34,-105"/></region>
         <destination>
             <point id="RUL3">-2.5,41,-107.5</point>
+        </destination>
     </portal>  
     <portal>
         <region>
             <cuboid min="-4,33,-115" max="-5,34,-116"/></region>
         <destination>
             <point id="RUL4">-2.5,41,-113.5</point>
+        </destination>
     </portal>  
     <portal>
         <region>
             <cuboid min="4,41,-114" max="5,42,-115"/></region>
         <destination>
             <point id="RLL1">4.5,33,-114.5</point>
+        </destination>
     </portal>  
     <portal>
         <region>
             <cuboid min="4,41,-107" max="5,42,-106"/></region>
         <destination>
             <point id="RLL2">4.5,33,-106.5</point>
+        </destination>
     </portal> 
     <portal>
         <region>
             <cuboid min="-3,41,-107" max="-4,42,-106"/></region>
         <destination>
             <point id="RLL3">-3.5,33,-106.5</point>
+        </destination>
     </portal> 
     <portal>
         <region>
             <cuboid min="-3,41,-114" max="-4,42,-115"/></region>
         <destination>
             <point id="RLL4">-3.5,33,-114.5</point>
+        </destination>
     </portal> 
     <portal>
         <region>
             <cuboid min="-109,22,-156" max="-108,23,-157"/></region>
         <destination>
             <point id="PUL1">-110.5,30,-154.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="-109,22,-147" max="-108,23,-146"/></region>
         <destination>
             <point id="PUL2">-110.5,30,-148.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="-118,22,-147" max="-119,23,-146"/></region>
         <destination>
             <point id="PUL3">-116.5,30,-148.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="-118,22,-156" max="-119,23,-157"/></region>
         <destination>
             <point id="PUL4">-116.5,30,-154.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="-110,30,-155" max="-109,31,-156"/></region>
         <destination>
             <point id="PLL1">-109.5,22,-155.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="-110,30,-148" max="-109,31,-147"/></region>
         <destination>
             <point id="PLL2">-109.5,22,-147.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="-117,30,-148" max="-118,31,-147"/></region>
         <destination>
             <point id="PLL3">-117.5,22,-147.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="-117,30,-155" max="-118,31,-156"/></region>
         <destination>
             <point id="PLL4">-117.5,22,-155.5</point>
+        </destination>
     </portal>
-    <portal>
+    <portal yaw="180">
         <region>
             <cuboid min="2,22,188" max="-1,24,189"/></region>
         <destination>
             <cuboid id="bspawn2" min="2,35,183" max="-1,35,185"/>
+        </destination>
     </portal>
-    <portal>
+    <portal yaw="180">
         <region>
             <cuboid min="2,35,186" max="-1,37,187"/></region>
         <destination>
             <cuboid id="bspawn1" min="2,22,185" max="-1,22,187"/>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="-109,22,148" max="-108,23,147"/></region>
         <destination>
             <point id="GUL1">-110.5,30,149.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="-109,22,157" max="-108,23,158"/></region>
         <destination>
             <point id="GUL2">-110.5,30,155.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="-118,22,157" max="-119,23,158"/></region>
         <destination>
             <point id="GUL3">-116.5,30,155.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="-118,22,148" max="-119,23,147"/></region>
         <destination>
             <point id="GUL4">-116.5,30,149.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="-110,30,149" max="-109,31,148"/></region>
         <destination>
             <point id="GLL1">-109.5,22,148.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="-110,30,156" max="-109,31,157"/></region>
         <destination>
             <point id="GLL2">-109.5,22,156.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="-117,30,156" max="-118,31,157"/></region>
         <destination>
             <point id="GLL3">-117.5,22,156.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="-117,30,149" max="-118,31,148"/></region>
         <destination>
             <point id="GLL4">-117.5,22,148.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="-4,33,116" max="-5,34,117"/></region>
         <destination>
             <point id="CUL1">-2.5,41,114.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="-4,33,107" max="-5,34,106"/></region>
         <destination>
             <point id="CUL2">-2.5,41,108.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="5,33,107" max="6,34,106"/></region>
         <destination>
             <point id="CUL3">3.5,41,108.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="5,33,116" max="6,34,117"/></region>
         <destination>
             <point id="CUL4">3.5,41,114.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="-3,41,115" max="-4,42,116"/></region>
         <destination>
             <point id="CLL1">-3.5,33,115.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="-3,41,108" max="-4,42,107"/></region>
         <destination>
             <point id="CLL2">-3.5,33,107.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="4,41,108" max="5,42,107"/></region>
         <destination>
             <point id="CLL3">4.5,33,107.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="4,41,115" max="5,42,116"/></region>
         <destination>
             <point id="CLL4">4.5,33,115.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="110,22,157" max="109,23,158"/></region>
         <destination>
             <point id="LBUL1">111.5,30,155.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="110,22,148" max="109,23,147"/></region>
         <destination>
             <point id="LBUL2">111.5,30,149.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="119,22,148" max="120,23,147"/></region>
         <destination>
             <point id="LBUL3">117.5,30,149.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="119,22,157" max="120,23,158"/></region>
         <destination>
             <point id="LBUL4">117.5,30,155.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="111,30,156" max="110,31,157"/></region>
         <destination>
             <point id="LBLL1">110.5,22,156.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="111,30,149" max="110,31,148"/></region>
         <destination>
             <point id="LBLL2">110.5,22,148.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="118,30,149" max="119,31,148"/></region>
         <destination>
             <point id="LBLL3">118.5,22,148.5</point>
+        </destination>
     </portal>
     <portal>
         <region>
             <cuboid min="118,30,156" max="119,31,157"/></region>
         <destination>
             <point id="LBLL4">118.5,22,156.5</point>
+        </destination>
     </portal>
 </portals>
 <renewables>
