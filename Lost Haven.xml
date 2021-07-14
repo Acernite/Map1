@@ -104,9 +104,9 @@
 </wools>
 <control-points incremental="true" show-progress="true" required="false">
     <control-point id="sanctuary" name="Old Sanctuary" capture-time="25s">
-        <capture><cylinder base="0.5,10,0.5" radius="7" height="14"/></capture>
-        <progress><cylinder base="0.5,10,0.5" radius="7" height="14"/></progress>
-        <captured><cylinder base="0.5,10,0.5" radius="7" height="14"/></captured>
+        <capture><cylinder base="0.5,10,0.5" radius="8" height="14"/></capture>
+        <progress><cylinder base="0.5,10,0.5" radius="8" height="14"/></progress>
+        <captured><cylinder base="0.5,10,0.5" radius="8" height="14"/></captured>
     </control-point>
 </control-points>
 <filters>
