@@ -2,7 +2,7 @@
 <map proto="1.4.0">
 <name>Lost Haven</name>
 <version>1.0.0</version>
-<objective>Take the opponent's wools and place them on your victory monument!</objective>
+<objective>Take the opponent's wools and place them on your victory monument! Capture the Old Sanctuary to gain speed and haste!</objective>
 <gamemode>ctw</gamemode>
 <created>2021-07-13</created>
 <authors>
