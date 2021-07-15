@@ -17,19 +17,18 @@
     <kit id="spawn-kit">
         <clear/>
         <item slot="0" material="iron sword" unbreakable="true"/>
-        <item slot="1" material="bow" unbreakable="true"> 
-            <enchantment level="1">infinity</enchantment>
-        </item>
+        <item slot="1" material="bow" unbreakable="true"/> 
         <item slot="2" material="diamond pickaxe" unbreakable="true">
         </item>
         <item slot="3" material="iron axe" unbreakable="true">
             <enchantment level="1">efficiency</enchantment>
         </item>
         <item slot="4" material="bucket" amount="1"/>
-        <item slot="6" material="wood" damage="0" amount="48"/>
+        <item slot="6" material="wood" damage="0" amount="64"/>
         <item slot="7" material="golden apple" amount="1"/>
         <item slot="8" material="golden carrot" amount="64"/>
-        <item slot="28" material="arrow" amount="1"/>
+        <item slot="28" material="arrow" amount="64"/>
+        <item slot="19" material="arrow" amount="64"/>
         <item slot="30" material="iron spade"/>
     </kit>
     <kit id="orange-kit" parents="spawn-kit">
@@ -754,6 +753,7 @@
 <kill-rewards>
     <kill-reward>
         <item material="golden apple" amount="1"/>
+        <item material="arrow" amount="8"/>
     </kill-reward>
 </kill-rewards>
 </map>
