@@ -183,279 +183,147 @@
         </union>
     </union>
     <union id="no-underbridge">
-        <cuboid min="-34,0,195" max="-130,10,32"/>
-        <cuboid min="35,0,195" max="130,10,32"/>
-        <cuboid min="35,0,-195" max="130,10,-31"/>
-        <cuboid min="-34,10,-195" max="-130,10,-31"/>
-        <cuboid min="35,0,-67" max="-34,4,68"/>    
+        <cuboid min="-34,1,195" max="-130,11,32"/>
+        <cuboid min="35,1,195" max="130,11,32"/>
+        <cuboid min="35,1,-195" max="130,11,-31"/>
+        <cuboid min="-34,1,-195" max="-130,11,-31"/>
+        <cuboid min="35,1,-67" max="-34,5,68"/>    
     </union>
     <union id="grid"> <!-- very long -->
         <rectangle min="-128,195" max="-127,-195"/>
-        <rectangle min="-127,195" max="-126,-195"/>
         <rectangle min="-126,195" max="-125,-195"/>
-        <rectangle min="-125,195" max="-124,-195"/>
-        <rectangle min="-124,195" max="-123,-195"/>
-        <rectangle min="-123,195" max="-122,-195"/>
-        <rectangle min="-122,195" max="-121,-195"/>
-        <rectangle min="-121,195" max="-120,-195"/>
-        <rectangle min="-120,195" max="-119,-195"/>
-        <rectangle min="-119,195" max="-118,-195"/>
-        <rectangle min="-118,195" max="-117,-195"/>
-        <rectangle min="-117,195" max="-116,-195"/>
-        <rectangle min="-116,195" max="-115,-195"/>
-        <rectangle min="-115,195" max="-114,-195"/>
-        <rectangle min="-114,195" max="-113,-195"/>
-        <rectangle min="-113,195" max="-112,-195"/>
-        <rectangle min="-112,195" max="-111,-195"/>
-        <rectangle min="-111,195" max="-110,-195"/>
-        <rectangle min="-110,195" max="-109,-195"/>
-        <rectangle min="-109,195" max="-108,-195"/>
-        <rectangle min="-108,195" max="-107,-195"/>
-        <rectangle min="-107,195" max="-106,-195"/>
-        <rectangle min="-106,195" max="-105,-195"/>
-        <rectangle min="-105,195" max="-104,-195"/>
+        <rectangle min="-124,195" max="-123,-195"/>   
+        <rectangle min="-122,195" max="-121,-195"/>       
+        <rectangle min="-120,195" max="-119,-195"/>       
+        <rectangle min="-118,195" max="-117,-195"/>      
+        <rectangle min="-116,195" max="-115,-195"/>     
+        <rectangle min="-114,195" max="-113,-195"/>     
+        <rectangle min="-112,195" max="-111,-195"/>      
+        <rectangle min="-110,195" max="-109,-195"/>      
+        <rectangle min="-108,195" max="-107,-195"/>       
+        <rectangle min="-106,195" max="-105,-195"/>      
         <rectangle min="-104,195" max="-103,-195"/>
-        <rectangle min="-103,195" max="-102,-195"/>
         <rectangle min="-102,195" max="-101,-195"/>
-        <rectangle min="-101,195" max="-100,-195"/>
-        <rectangle min="-100,195" max="-99,-195"/>
-        <rectangle min="-99,195" max="-98,-195"/>
-        <rectangle min="-98,195" max="-97,-195"/>
-        <rectangle min="-97,195" max="-96,-195"/>
+        <rectangle min="-100,195" max="-99,-195"/>  
+        <rectangle min="-98,195" max="-97,-195"/>  
         <rectangle min="-96,195" max="-95,-195"/>
-        <rectangle min="-95,195" max="-94,-195"/>
         <rectangle min="-94,195" max="-93,-195"/>
-        <rectangle min="-93,195" max="-92,-195"/>
         <rectangle min="-92,195" max="-91,-195"/>
-        <rectangle min="-91,195" max="-90,-195"/>
-        <rectangle min="-90,195" max="-89,-195"/>
-        <rectangle min="-89,195" max="-88,-195"/>
-        <rectangle min="-88,195" max="-87,-195"/>
-        <rectangle min="-87,195" max="-86,-195"/>
-        <rectangle min="-86,195" max="-85,-195"/>
-        <rectangle min="-85,195" max="-84,-195"/>
-        <rectangle min="-84,195" max="-83,-195"/>
-        <rectangle min="-83,195" max="-82,-195"/>
-        <rectangle min="-82,195" max="-81,-195"/>
-        <rectangle min="-81,195" max="-80,-195"/>
-        <rectangle min="-80,195" max="-79,-195"/>
-        <rectangle min="-79,195" max="-78,-195"/>
-        <rectangle min="-78,195" max="-77,-195"/>
-        <rectangle min="-77,195" max="-76,-195"/>
-        <rectangle min="-76,195" max="-75,-195"/>
-        <rectangle min="-75,195" max="-74,-195"/>
+        <rectangle min="-90,195" max="-89,-195"/>       
+        <rectangle min="-88,195" max="-87,-195"/>  
+        <rectangle min="-86,195" max="-85,-195"/>   
+        <rectangle min="-84,195" max="-83,-195"/>    
+        <rectangle min="-82,195" max="-81,-195"/>   
+        <rectangle min="-80,195" max="-79,-195"/>      
+        <rectangle min="-78,195" max="-77,-195"/>     
+        <rectangle min="-76,195" max="-75,-195"/>   
         <rectangle min="-74,195" max="-73,-195"/>
-        <rectangle min="-73,195" max="-72,-195"/>
-        <rectangle min="-72,195" max="-71,-195"/>
-        <rectangle min="-71,195" max="-70,-195"/>
+        <rectangle min="-72,195" max="-71,-195"/> 
         <rectangle min="-70,195" max="-69,-195"/>
-        <rectangle min="-69,195" max="-68,-195"/>
-        <rectangle min="-68,195" max="-67,-195"/>
-        <rectangle min="-67,195" max="-66,-195"/>
+        <rectangle min="-68,195" max="-67,-195"/> 
         <rectangle min="-66,195" max="-65,-195"/>
-        <rectangle min="-65,195" max="-64,-195"/>
-        <rectangle min="-64,195" max="-63,-195"/>
-        <rectangle min="-63,195" max="-62,-195"/>
+        <rectangle min="-64,195" max="-63,-195"/>      
         <rectangle min="-62,195" max="-61,-195"/>
-        <rectangle min="-61,195" max="-60,-195"/>
-        <rectangle min="-60,195" max="-59,-195"/>
-        <rectangle min="-59,195" max="-58,-195"/>
-        <rectangle min="-58,195" max="-57,-195"/>
-        <rectangle min="-57,195" max="-56,-195"/>
-        <rectangle min="-56,195" max="-55,-195"/>
-        <rectangle min="-55,195" max="-54,-195"/>
-        <rectangle min="-54,195" max="-53,-195"/>
-        <rectangle min="-53,195" max="-52,-195"/>
-        <rectangle min="-52,195" max="-51,-195"/>
-        <rectangle min="-51,195" max="-50,-195"/>
+        <rectangle min="-60,195" max="-59,-195"/> 
+        <rectangle min="-58,195" max="-57,-195"/>      
+        <rectangle min="-56,195" max="-55,-195"/>       
+        <rectangle min="-54,195" max="-53,-195"/> 
+        <rectangle min="-52,195" max="-51,-195"/>   
         <rectangle min="-50,195" max="-49,-195"/>
-        <rectangle min="-49,195" max="-48,-195"/>
-        <rectangle min="-48,195" max="-47,-195"/>
-        <rectangle min="-47,195" max="-46,-195"/>
-        <rectangle min="-46,195" max="-45,-195"/>
-        <rectangle min="-45,195" max="-44,-195"/>
-        <rectangle min="-44,195" max="-43,-195"/>
-        <rectangle min="-43,195" max="-42,-195"/>
-        <rectangle min="-42,195" max="-41,-195"/>
-        <rectangle min="-41,195" max="-40,-195"/>
-        <rectangle min="-40,195" max="-39,-195"/>
-        <rectangle min="-39,195" max="-38,-195"/>
-        <rectangle min="-38,195" max="-37,-195"/>
-        <rectangle min="-37,195" max="-36,-195"/>
-        <rectangle min="-36,195" max="-35,-195"/>
-        <rectangle min="-35,195" max="-34,-195"/>
-        <rectangle min="-34,195" max="-33,-195"/>
-        <rectangle min="-33,195" max="-32,-195"/>
-        <rectangle min="-32,195" max="-31,-195"/>
-        <rectangle min="-31,195" max="-30,-195"/>
-        <rectangle min="-30,195" max="-29,-195"/>
-        <rectangle min="-29,195" max="-28,-195"/>
-        <rectangle min="-28,195" max="-27,-195"/>
-        <rectangle min="-27,195" max="-26,-195"/>
-        <rectangle min="-26,195" max="-25,-195"/>
-        <rectangle min="-25,195" max="-24,-195"/>
-        <rectangle min="-24,195" max="-23,-195"/>
-        <rectangle min="-23,195" max="-22,-195"/>
-        <rectangle min="-22,195" max="-21,-195"/>
-        <rectangle min="-21,195" max="-20,-195"/>
-        <rectangle min="-20,195" max="-19,-195"/>
-        <rectangle min="-19,195" max="-18,-195"/>
-        <rectangle min="-18,195" max="-17,-195"/>
-        <rectangle min="-17,195" max="-16,-195"/>
-        <rectangle min="-16,195" max="-15,-195"/>
-        <rectangle min="-15,195" max="-14,-195"/>
-        <rectangle min="-14,195" max="-13,-195"/>
-        <rectangle min="-13,195" max="-12,-195"/>
+        <rectangle min="-48,195" max="-47,-195"/>   
+        <rectangle min="-46,195" max="-45,-195"/>        
+        <rectangle min="-44,195" max="-43,-195"/>        
+        <rectangle min="-42,195" max="-41,-195"/>    
+        <rectangle min="-40,195" max="-39,-195"/>      
+        <rectangle min="-38,195" max="-37,-195"/>       
+        <rectangle min="-36,195" max="-35,-195"/>       
+        <rectangle min="-34,195" max="-33,-195"/>      
+        <rectangle min="-32,195" max="-31,-195"/>    
+        <rectangle min="-30,195" max="-29,-195"/>       
+        <rectangle min="-28,195" max="-27,-195"/> 
+        <rectangle min="-26,195" max="-25,-195"/>    
+        <rectangle min="-24,195" max="-23,-195"/>   
+        <rectangle min="-22,195" max="-21,-195"/>    
+        <rectangle min="-20,195" max="-19,-195"/>     
+        <rectangle min="-18,195" max="-17,-195"/>    
+        <rectangle min="-16,195" max="-15,-195"/>  
+        <rectangle min="-14,195" max="-13,-195"/>    
         <rectangle min="-12,195" max="-11,-195"/>
-        <rectangle min="-11,195" max="-10,-195"/>
-        <rectangle min="-10,195" max="-9,-195"/>
-        <rectangle min="-9,195" max="-8,-195"/>
+        <rectangle min="-10,195" max="-9,-195"/>  
         <rectangle min="-8,195" max="-7,-195"/>
-        <rectangle min="-7,195" max="-6,-195"/>
         <rectangle min="-6,195" max="-5,-195"/>
-        <rectangle min="-5,195" max="-4,-195"/>
-        <rectangle min="-4,195" max="-3,-195"/>
-        <rectangle min="-3,195" max="-2,-195"/>
-        <rectangle min="-2,195" max="-1,-195"/>
-        <rectangle min="-1,195" max="0,-195"/>
-        <rectangle min="0,195" max="1,-195"/>
-        <rectangle min="1,195" max="2,-195"/>
-        <rectangle min="2,195" max="3,-195"/>
-        <rectangle min="3,195" max="4,-195"/>
-        <rectangle min="4,195" max="5,-195"/>
-        <rectangle min="5,195" max="6,-195"/>
-        <rectangle min="6,195" max="7,-195"/>
-        <rectangle min="7,195" max="8,-195"/>
-        <rectangle min="8,195" max="9,-195"/>
-        <rectangle min="9,195" max="10,-195"/>
-        <rectangle min="10,195" max="11,-195"/>
-        <rectangle min="11,195" max="12,-195"/>
-        <rectangle min="12,195" max="13,-195"/>
-        <rectangle min="13,195" max="14,-195"/>
-        <rectangle min="14,195" max="15,-195"/>
-        <rectangle min="15,195" max="16,-195"/>
-        <rectangle min="16,195" max="17,-195"/>
-        <rectangle min="17,195" max="18,-195"/>
+        <rectangle min="-4,195" max="-3,-195"/>     
+        <rectangle min="-2,195" max="-1,-195"/> 
+        <rectangle min="0,195" max="1,-195"/>     
+        <rectangle min="2,195" max="3,-195"/>   
+        <rectangle min="4,195" max="5,-195"/>    
+        <rectangle min="6,195" max="7,-195"/>  
+        <rectangle min="8,195" max="9,-195"/>     
+        <rectangle min="10,195" max="11,-195"/>    
+        <rectangle min="12,195" max="13,-195"/>      
+        <rectangle min="14,195" max="15,-195"/> 
+        <rectangle min="16,195" max="17,-195"/>  
         <rectangle min="18,195" max="19,-195"/>
-        <rectangle min="19,195" max="20,-195"/>
-        <rectangle min="20,195" max="21,-195"/>
-        <rectangle min="21,195" max="22,-195"/>
-        <rectangle min="22,195" max="23,-195"/>
-        <rectangle min="23,195" max="24,-195"/>
+        <rectangle min="20,195" max="21,-195"/>    
+        <rectangle min="22,195" max="23,-195"/>     
         <rectangle min="24,195" max="25,-195"/>
-        <rectangle min="25,195" max="26,-195"/>
         <rectangle min="26,195" max="27,-195"/>
-        <rectangle min="27,195" max="28,-195"/>
         <rectangle min="28,195" max="29,-195"/>
-        <rectangle min="29,195" max="30,-195"/>
-        <rectangle min="30,195" max="31,-195"/>
-        <rectangle min="31,195" max="32,-195"/>
+        <rectangle min="30,195" max="31,-195"/>     
         <rectangle min="32,195" max="33,-195"/>
-        <rectangle min="33,195" max="34,-195"/>
+        <rectangle min="34,195" max="35,-195"/>   
+        <rectangle min="36,195" max="37,-195"/> 
+        <rectangle min="38,195" max="39,-195"/>  
+        <rectangle min="30,195" max="31,-195"/>   
+        <rectangle min="32,195" max="33,-195"/>     
         <rectangle min="34,195" max="35,-195"/>
-        <rectangle min="35,195" max="36,-195"/>
-        <rectangle min="36,195" max="37,-195"/>
-        <rectangle min="37,195" max="38,-195"/>
+        <rectangle min="36,195" max="37,-195"/>   
         <rectangle min="38,195" max="39,-195"/>
-        <rectangle min="39,195" max="40,-195"/>
-        <rectangle min="30,195" max="31,-195"/>
-        <rectangle min="31,195" max="32,-195"/>
-        <rectangle min="32,195" max="33,-195"/>
-        <rectangle min="33,195" max="34,-195"/>
-        <rectangle min="34,195" max="35,-195"/>
-        <rectangle min="35,195" max="36,-195"/>
-        <rectangle min="36,195" max="37,-195"/>
-        <rectangle min="37,195" max="38,-195"/>
-        <rectangle min="38,195" max="39,-195"/>
-        <rectangle min="39,195" max="40,-195"/>
-        <rectangle min="40,195" max="41,-195"/>
-        <rectangle min="41,195" max="42,-195"/>
+        <rectangle min="40,195" max="41,-195"/>    
         <rectangle min="42,195" max="43,-195"/>
-        <rectangle min="43,195" max="44,-195"/>
         <rectangle min="44,195" max="45,-195"/>
-        <rectangle min="45,195" max="46,-195"/>
         <rectangle min="46,195" max="47,-195"/>
-        <rectangle min="47,195" max="48,-195"/>
         <rectangle min="48,195" max="49,-195"/>
-        <rectangle min="49,195" max="50,-195"/>
-        <rectangle min="50,195" max="51,-195"/>
-        <rectangle min="51,195" max="52,-195"/>
+        <rectangle min="50,195" max="51,-195"/>  
         <rectangle min="52,195" max="53,-195"/>
-        <rectangle min="53,195" max="54,-195"/>
-        <rectangle min="54,195" max="55,-195"/>
-        <rectangle min="55,195" max="56,-195"/>
+        <rectangle min="54,195" max="55,-195"/>    
         <rectangle min="56,195" max="57,-195"/>
-        <rectangle min="57,195" max="58,-195"/>
-        <rectangle min="58,195" max="59,-195"/>
-        <rectangle min="59,195" max="60,-195"/>
+        <rectangle min="58,195" max="59,-195"/>  
         <rectangle min="60,195" max="61,-195"/>
-        <rectangle min="61,195" max="62,-195"/>
-        <rectangle min="62,195" max="63,-195"/>
-        <rectangle min="63,195" max="64,-195"/>
+        <rectangle min="62,195" max="63,-195"/>      
         <rectangle min="64,195" max="65,-195"/>
-        <rectangle min="65,195" max="66,-195"/>
-        <rectangle min="66,195" max="67,-195"/>
-        <rectangle min="67,195" max="68,-195"/>
+        <rectangle min="66,195" max="67,-195"/>   
         <rectangle min="68,195" max="69,-195"/>
-        <rectangle min="69,195" max="70,-195"/>
-        <rectangle min="70,195" max="71,-195"/>
-        <rectangle min="71,195" max="72,-195"/>
-        <rectangle min="72,195" max="73,-195"/>
-        <rectangle min="73,195" max="74,-195"/>
-        <rectangle min="74,195" max="75,-195"/>
-        <rectangle min="75,195" max="76,-195"/>
-        <rectangle min="76,195" max="77,-195"/>
-        <rectangle min="77,195" max="78,-195"/>
-        <rectangle min="78,195" max="79,-195"/>
-        <rectangle min="79,195" max="80,-195"/>
+        <rectangle min="70,195" max="71,-195"/>   
+        <rectangle min="72,195" max="73,-195"/> 
+        <rectangle min="74,195" max="75,-195"/> 
+        <rectangle min="76,195" max="77,-195"/>  
+        <rectangle min="78,195" max="79,-195"/>     
         <rectangle min="80,195" max="81,-195"/>
-        <rectangle min="81,195" max="82,-195"/>
-        <rectangle min="82,195" max="83,-195"/>
-        <rectangle min="83,195" max="84,-195"/>
-        <rectangle min="84,195" max="85,-195"/>
-        <rectangle min="85,195" max="86,-195"/>
-        <rectangle min="86,195" max="87,-195"/>
-        <rectangle min="87,195" max="88,-195"/>
-        <rectangle min="88,195" max="89,-195"/>
-        <rectangle min="89,195" max="90,-195"/>
-        <rectangle min="90,195" max="91,-195"/>
-        <rectangle min="91,195" max="92,-195"/>
-        <rectangle min="92,195" max="93,-195"/>
-        <rectangle min="93,195" max="94,-195"/>
-        <rectangle min="94,195" max="95,-195"/>
-        <rectangle min="95,195" max="96,-195"/>
-        <rectangle min="96,195" max="97,-195"/>
-        <rectangle min="97,195" max="98,-195"/>
+        <rectangle min="82,195" max="83,-195"/>     
+        <rectangle min="84,195" max="85,-195"/>   
+        <rectangle min="86,195" max="87,-195"/>     
+        <rectangle min="88,195" max="89,-195"/>     
+        <rectangle min="90,195" max="91,-195"/>   
+        <rectangle min="92,195" max="93,-195"/>    
+        <rectangle min="94,195" max="95,-195"/>  
+        <rectangle min="96,195" max="97,-195"/>   
         <rectangle min="98,195" max="99,-195"/>
-        <rectangle min="99,195" max="100,-195"/>
         <rectangle min="100,195" max="101,-195"/>
-        <rectangle min="101,195" max="102,-195"/>
-        <rectangle min="102,195" max="103,-195"/>
-        <rectangle min="103,195" max="104,-195"/>
-        <rectangle min="104,195" max="105,-195"/>
-        <rectangle min="105,195" max="106,-195"/>
-        <rectangle min="106,195" max="107,-195"/>
-        <rectangle min="107,195" max="108,-195"/>
-        <rectangle min="108,195" max="109,-195"/>
-        <rectangle min="109,195" max="110,-195"/>
-        <rectangle min="110,195" max="111,-195"/>
-        <rectangle min="111,195" max="112,-195"/>
-        <rectangle min="112,195" max="113,-195"/>
-        <rectangle min="113,195" max="114,-195"/>
-        <rectangle min="114,195" max="115,-195"/>
-        <rectangle min="115,195" max="116,-195"/>
-        <rectangle min="116,195" max="117,-195"/>
-        <rectangle min="117,195" max="118,-195"/>
-        <rectangle min="118,195" max="119,-195"/>
-        <rectangle min="119,195" max="120,-195"/>
+        <rectangle min="102,195" max="103,-195"/>        
+        <rectangle min="104,195" max="105,-195"/>      
+        <rectangle min="106,195" max="107,-195"/>      
+        <rectangle min="108,195" max="109,-195"/>      
+        <rectangle min="110,195" max="111,-195"/>       
+        <rectangle min="112,195" max="113,-195"/>   
+        <rectangle min="114,195" max="115,-195"/>    
+        <rectangle min="116,195" max="117,-195"/>   
+        <rectangle min="118,195" max="119,-195"/>    
         <rectangle min="120,195" max="121,-195"/>
-        <rectangle min="121,195" max="122,-195"/>
         <rectangle min="122,195" max="123,-195"/>
-        <rectangle min="123,195" max="124,-195"/>
         <rectangle min="124,195" max="125,-195"/>
-        <rectangle min="125,195" max="126,-195"/>
         <rectangle min="126,195" max="127,-195"/>
-        <rectangle min="127,195" max="128,-195"/>
+        <rectangle min="128,195" max="129,-195"/>
     </union>
     <!-- apply -->
     <apply block="deny-void" region="entire-map" message="You cannot build in the void!"/>
