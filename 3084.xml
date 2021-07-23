@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<map proto="1.4.0">
+<name>3084</name>
+<version>1.0.0</version>
+<objective>Take the opponent's wools and place them on your victory monument!</objective>
+<gamemode>ctw</gamemode>
+<created>2021-07-23</created>
+<authors>
+    <author uuid="2d27d740-0e82-4970-a9c3-5239bc7edba5"/> <!-- Justcupcakes -->
+    <author uuid="93a2f790-e430-4742-94ac-e513660bef37"/> <!-- adenines -->
+    <author uuid="787c2738-70ba-4bfc-8faf-70ae9d87e5b9"/> <!-- uracils -->
+</authors>
+<teams>
+    <team id="purple-team" color="dark_purple" max="45">Purple</team>
+    <team id="blue-team" color="blue" max="45">Blue</team>
+</teams>
+<kits>
+    <kit id="spawn-kit">
+        <item slot="0" material="iron sword" unbreakable="true"/>
+        <item slot="1" material="bow"> 
+            <enchantment level="1">infinity</enchantment>
+        </item>
+        <item slot="2" material="iron pickaxe" unbreakable="true">
+        </item>
+        <item slot="3" material="stone axe" unbreakable="true">
+        </item>
+        <item slot="4" material="water_bucket" amount="1"/>
+        <item slot="7" material="golden apple" amount="1"/>
+        <item slot="8" material="golden carrot" amount="64"/>
+        <item slot="28" material="arrow" amount="1"/>
+        <effect duration="oo" amplifier="1">night_vision</effect>
+    </kit>
+    <kit id="purple-kit" parents="spawn-kit">
+        <item slot="5" material="stained_clay" damage="10" amount="64"/>
+        <item slot="32" material="stained_clay" damage="10" amount="64"/>
+        <item slot="23" material="stained_clay" damage="10" amount="64"/>
+        <item slot="6" material="stained_glass" damage="10" amount="64"/>
+        <helmet material="leather helmet" color="7F3FB2" unbreakable="true">
+            <enchantment level="1">projectile_protection</enchantment>
+        </helmet>
+        <chestplate material="leather chestplate" color="7F3FB2" unbreakable="true">
+            <enchantment level="1">projectile_protection</enchantment>
+        </chestplate>
+        <boots material="leather boots" color="7F3FB2" unbreakable="true">
+            <enchantment level="1">projectile_protection</enchantment>
+        </boots>
+    </kit>
+    <kit id="blue-kit" parents="spawn-kit">
+        <item slot="5" material="stained_clay" damage="3" amount="64"/>
+        <item slot="32" material="stained_clay" damage="3" amount="64"/>
+        <item slot="23" material="stained_clay" damage="3" amount="64"/>
+        <item slot="6" material="stained_glass" damage="3" amount="64"/>
+        <helmet material="leather helmet" color="6699D8" unbreakable="true">
+            <enchantment level="1">projectile_protection</enchantment>
+        </helmet>
+        <chestplate material="leather chestplate" color="6699D8" unbreakable="true">
+            <enchantment level="1">projectile_protection</enchantment>
+        </chestplate>
+        <boots material="leather boots" color="6699D8" unbreakable="true">
+            <enchantment level="1">projectile_protection</enchantment>
+        </boots>
+    </kit>
+    <kit id="obs">
+        <effect duration="oo" amplifier="1">night_vision</effect>
+    </kit>
+</kits>
+<spawns>
+    <spawn team="purple-team" kit="purple-kit" yaw="@0">
+        <region>
+            <cylinder base="48.5,9,-187.5" radius="0.5" height="0"/>
+        </region>
+    </spawn>
+    <spawn team="blue-team" kit="blue-kit" yaw="@180">
+        <region>
+            <cylinder base="-47.5,9,188.5" radius="0.5" height="0"/>
+        </region>
+    </spawn>
+    <default yaw="@90" kit="obs">
+        <region>
+            <cylinder base="91.5,48,1.5" radius="1" height="0"/>
+        </region>
+    </default>
+</spawns>
+<wools craftable="false">
+    <wool team="purple-team" color="lime" location="-88,9,124">
+        <monument><block>46.5,10,-191.5</block></monument>
+    </wool>
+    <wool team="purple-team" color="cyan" location="21,9,178">
+        <monument><block>48.5,10,-191.5</block></monument>
+    </wool>
+    <wool team="purple-team" color="blue" location="42,9,105">
+        <monument><block>50.5,10,-191.5</block></monument>
+    </wool> 
+    <wool team="blue-team" color="red" location="89,9,-123">
+        <monument><block>-45.5,10,192.5</block></monument>
+    </wool>                          
+    <wool team="blue-team" color="pink" location="-20,9,-177">
+        <monument><block>-47.5,10,192.5</block></monument>
+    </wool>
+    <wool team="blue-team" color="magenta" location="-41,9,-104">
+        <monument><block>-49.5,10,192.5</block></monument>
+    </wool>
+</wools>
+<filters>
+    <team id="only-purple">purple-team</team>
+    <team id="only-blue">blue-team</team>
+    <deny id="deny-team-void">
+        <void/>
+    </deny> 
+    <all id="purple-woolroom-filter">
+        <team>purple-team</team>
+        <material>web</material>
+    </all>
+    <all id="blue-woolroom-filter">
+        <team>blue-team</team>
+        <material>web</material>
+    </all>
+    <material id="only-iron">iron block</material>
+    <material id="only-air">air</material>
+    <all id="only-renewable">
+        <material>iron block</material>  
+        <not>
+            <cause>player</cause>
+        </not>
+    </all>
+</filters>
+<regions>
+    <rectangle id="whole-map" min="109,-207" max="-109,208"/>
+    <union id="all-woolrooms">
+        <union id="purples-woolrooms">
+            <rectangle id="blue-woolroom" min="52,96" max="32,116"/>
+            <rectangle id="cyan-woolroom" min="11,187" max="31,167"/>
+            <rectangle id="lime-woolroom" min="-97,114" max="-77,134"/>
+        </union>
+        <union id="blues-woolrooms">
+            <rectangle id="magenta-woolroom" min="-51,-95" max="-31,-115"/>
+            <rectangle id="pink-woolroom" min="-10,-186" max="-30,-166"/>
+            <rectangle id="red-woolroom" min="98,-113" max="78,-133"/>
+        </union>
+    </union>
+    <union id="spawns">
+        <rectangle id="purple-spawn" min="37,-170" max="60,-197"/>
+        <rectangle id="blue-spawn" min="-36,171" max="-59,198"/>
+    </union>
+    <union id="upgrade-portal-region">
+        <cuboid min="-52,7,189" max="-56,14,184"/> <!-- blue's side -->
+        <cuboid min="52,7,-188" max="57,14,-183"/> <!-- purple's side -->
+    </union>
+    <rectangle id="capture-region" min="-11,12" max="12,-11"/>
