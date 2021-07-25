@@ -164,7 +164,8 @@
     <rectangle id="capture-region" min="-11,12" max="12,-11"/>
     <union id="kit-region">
         <cuboid id="kit-region-blue" min="-54,8,188" max="-55,12,185"/>
-        <cuboid id-"kit-region-purple" min="55,8,-187" max="56,12,-184"/>
+        <cuboid id="kit-region-purple" min="55,8,-187" max="56,12,-184"/>
+    </union>
     <union id="shop-region">
         <cuboid min="20,7,47" max="17,8,50"/>
         <cuboid min="-19,7,-46" max="-16,8,-49"/>
@@ -417,7 +418,7 @@
     <item>chainmail_helmet</item>
 </itemremove>
 <toolrepair>
-    <item>bow<item>
+    <item>bow</item>
 </toolrepair>
 <maxbuildheight>40</maxbuildheight>
 <broadcasts>
