@@ -187,6 +187,7 @@
     <apply kit="upgraded" region="kit-region"/>
 </regions>
 <portals>
+    <!-- blues spawn portals -->
     <portal yaw="@180">
         <region>
             <cuboid id="kit-region-blue"/></region>
@@ -222,3 +223,210 @@
             <point>-47.5,9,181.5</point>
         </destination>
     </portal>
+    <portal yaw="@-90">
+        <region>
+            <cuboid min="-48,18,181" max="-47,19,180"/></region>
+        <destination>    
+            <point>-50.5,31,186.5</point>
+        </destination>
+    </portal>
+    <portal yaw="@180">
+        <region>
+            <cuboid min="-53,31,187" max="-54,32,186"/></region>
+        <destination>    
+            <point>-47.5,18,190.5</point>
+        </destination>
+    </portal>
+    <!-- lime cyan blue woolrooms -->
+    <portal yaw="@-90">
+        <region>
+            <cuboid min="-87,9,123" max="-86,11,125"/></region>
+        <destination>    
+            <cuboid min="-87,19,125" max="-86,19,123"/>
+        </destination>
+    </portal>
+    <portal yaw="@90">
+        <region>
+            <cuboid min="-88,19,125" max="-89,21,123"/></region>
+        <destination>    
+            <cuboid min="-88,9,125" max="-89,9,123"/>
+        </destination>
+    </portal>
+    <portal yaw="@180">
+        <region>
+            <cuboid min="20,9,177" max="22,11,176"/></region>
+        <destination>    
+            <cuboid min="22,19,177" max="20,19,176"/>
+        </destination>
+    </portal>
+    <portal yaw="@0">
+        <region>
+            <cuboid min="22,19,178" max="20,21,179"/></region>
+        <destination>    
+            <cuboid min="22,9,178" max="20,9,179"/>
+        </destination>
+    </portal>
+    <portal yaw="@0">
+        <region>
+            <cuboid min="43,9,106" max="41,11,107"/></region>
+        <destination>    
+            <cuboid min="41,19,106" max="43,19,107"/>
+        </destination>
+    </portal>
+    <portal yaw="@180">
+        <region>
+            <cuboid min="41,19,105" max="43,21,104"/></region>
+        <destination>    
+            <cuboid min="41,9,105" max="43,9,104"/>
+        </destination>
+    </portal>
+    <!-- purples spawn portals -->
+    <portal yaw="@0">
+        <region>
+            <cuboid id="kit-region-purple"/></region>
+        <destination>    
+            <point>48.5,9,-180.5</point>
+        </destination>
+    </portal>
+    <portal yaw="@0">
+        <region>
+            <cuboid min="52,9,-181" max="51,10,-180"/></region>
+        <destination>    
+            <point>48.5,18,-189.5</point>
+        </destination>
+    </portal>
+    <portal yaw="@0">
+        <region>
+            <cuboid min="46,9,-181" max="45,10,-180"/></region>
+        <destination>    
+            <point>48.5,18,-189.5</point>
+        </destination>
+    </portal>
+    <portal yaw="@0">
+        <region>
+            <cuboid min="53,18,-190" max="54,19,-189"/></region>
+        <destination>    
+            <point>48.5,9,-180.5</point>
+        </destination>
+    </portal>
+    <portal yaw="@0">
+        <region>
+            <cuboid min="44,18,-190" max="43,19,-189"/></region>
+        <destination>    
+            <point>48.5,9,-180.5</point>
+        </destination>
+    </portal>
+    <portal yaw="@90">
+        <region>
+            <cuboid min="49,18,-180" max="48,19,-179"/></region>
+        <destination>    
+            <point>51.5,31,-185.5</point>
+        </destination>
+    </portal>
+    <portal yaw="@0">
+        <region>
+            <cuboid min="54,31,-186" max="55,32,-185"/></region>
+        <destination>    
+            <point>48.5,18,-189.5</point>
+        </destination>
+    </portal>
+    <!-- red pink magenta woolrooms -->
+    <portal yaw="@90">
+        <region>
+            <cuboid min="88,9,-122" max="87,11,-124"/></region>
+        <destination>    
+            <cuboid min="88,19,-122" max="87,19,-124"/>
+        </destination>
+    </portal>
+    <portal yaw="@-90">
+        <region>
+            <cuboid min="89,19,-124" max="90,21,-122"/></region>
+        <destination>    
+            <cuboid min="89,9,-124" max="90,9,-122"/>
+        </destination>
+    </portal>
+    <portal yaw="@0">
+        <region>
+            <cuboid min="-19,9,-176" max="-21,11,-175"/></region>
+        <destination>    
+            <cuboid min="-19,19,-176" max="-21,19,-175"/>
+        </destination>
+    </portal>
+    <portal yaw="@180">
+        <region>
+            <cuboid min="-21,19,-177" max="-19,21,-178"/></region>
+        <destination>    
+            <cuboid min="-21,9,-177" max="-19,9,-178"/>
+        </destination>
+    </portal>
+    <portal yaw="@180">
+        <region>
+            <cuboid min="-42,9,-105" max="-40,9,-106"/></region>
+        <destination>    
+            <cuboid min="-42,19,-105" max="-40,19,-106"/>
+        </destination>
+    </portal>
+    <portal yaw="@0">
+        <region>
+            <cuboid min="-40,19,-104" max="-42,21,-103"/></region>
+        <destination>    
+            <cuboid min="-40,9,-104" max="-42,9,-103"/>
+        </destination>
+    </portal>
+</portals>
+<renewables>
+    <renewable interval="5" sound="true" particles="true" region="everywhere" renew-filter="only-iron" replace-filter="only-air" avoid-players="2"/>
+</renewables> 
+<block-drops>
+    <rule>
+        <region id="spawns"/>
+        <filter>
+            <material>iron block</material>
+        </filter>
+        <drops>
+            <item material="iron_chestplate"/>
+            <item material="iron_boots"/>
+        </drops>
+    </rule>
+</block-drops>
+<itemremove>
+    <item>stained_clay</item>
+    <item>smooth_brick:3</item>
+    <item>quartz_block</item>
+    <item>step:0</item>
+    <item>prismarine_crystals</item>
+    <item>golden_carrot</item>
+    <item>bucket</item>
+    <item>water_bucket</item>
+    <item>emerald</item>
+    <item>stained_glass</item>
+    <item>ladder</item>
+    <item>iron_trapdoor</item>
+    <item>stone:4</item>
+    <item>string</item>
+    <item>wool:7</item>
+    <item>stone:6</item>
+    <item>iron_sword</item>
+    <item>iron_pickaxe</item>
+    <item>stone_axe</item>
+    <item>iron_axe</item>
+    <item>leather_helmet</item>
+    <item>leather_chestplate</item>
+    <item>iron_leggings</item>
+    <item>leather_boots</item>
+    <item>chainmail_helmet</item>
+</itemremove>
+<toolrepair>
+    <item>bow<item>
+</toolrepair>
+<maxbuildheight>40</maxbuildheight>
+<broadcasts>
+    <tip after="5s" every="3m">Capture the Centre Hub to obtain kit upgrades!</tip>
+</broadcasts>
+<kill-rewards>
+    <kill-reward>
+        <item material="golden apple" amount="1"/>
+        <item material="emerald" amount="1"/>
+    </kill-reward>
+</kill-rewards>
+</map>
