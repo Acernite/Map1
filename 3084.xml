@@ -76,7 +76,7 @@
         <item slot="3" material="iron axe" unbreakable="true">
         </item>
         <item slot="4" material="water_bucket" amount="1"/>
-        <item slot="7" material="golden apple" amount="1"/>
+        <item slot="7" material="golden apple" amount="2"/>
         <item slot="8" material="golden carrot" amount="64"/>
         <item slot="28" material="arrow" amount="1"/>
         <item slot="5" material="stained_clay" damage="3" amount="64"/>
@@ -87,7 +87,7 @@
         <helmet material="chainmail helmet" unbreakable="true">
             <enchantment level="1">projectile_protection</enchantment>
         </helmet>
-        <chestplate material="leather chestplate" color="7F3FB2" unbreakable="true">
+        <chestplate material="chainmail chestplate" unbreakable="true">
             <enchantment level="2">projectile_protection</enchantment>
         </chestplate>
         <leggings material="iron leggings" unbreakable="true">
@@ -110,7 +110,7 @@
         <item slot="3" material="iron axe" unbreakable="true">
         </item>
         <item slot="4" material="water_bucket" amount="1"/>
-        <item slot="7" material="golden apple" amount="1"/>
+        <item slot="7" material="golden apple" amount="2"/>
         <item slot="8" material="golden carrot" amount="64"/>
         <item slot="28" material="arrow" amount="1"/>
         <item slot="5" material="stained_clay" damage="3" amount="64"/>
@@ -121,7 +121,7 @@
         <helmet material="chainmail helmet" unbreakable="true">
             <enchantment level="1">projectile_protection</enchantment>
         </helmet>
-        <chestplate material="leather chestplate" color="6699D8" unbreakable="true">
+        <chestplate material="chainmail chestplate" unbreakable="true">
             <enchantment level="2">projectile_protection</enchantment>
         </chestplate>
         <leggings material="iron leggings" unbreakable="true">
@@ -241,8 +241,8 @@
     </union>
     <cylinder id="cp" base="0.5,6,0.5" radius="8" height="5"/>
     <!-- applicators -->
-    <apply block-place="only-renewable" region="spawns" message="You can only break iron in spawn!"/>
-    <apply block-break="only-iron" region="spawns" message="You cannot place blocks in spawn!"/>
+    <apply block-place="only-renewable" region="spawns" message="You cannot place blocks in spawn!"/>
+    <apply block-break="only-iron" region="spawns" message="You can only break iron blocks in spawn!"/>
     <apply enter="only-purple" region="purple-spawn" message="You cannot enter `5Purple's `Cspawn!"/>
     <apply enter="only-blue" region="blue-spawn" message="You cannot enter `9Blue's `Cspawn!"/>    
     <apply enter="purple-capture" region="purple-upgrade" message="You need to capture the `6Centre Hub `Cto gain upgrades!"/>
@@ -491,6 +491,9 @@
     <item>iron_leggings</item>
     <item>leather_boots</item>
     <item>chainmail_helmet</item>
+    <item>chainmail_chestplate</item>
+    <item>sapling</item>
+    <item>cactus</item>
 </itemremove>
 <toolrepair>
     <item>bow</item>
