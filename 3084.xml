@@ -28,6 +28,7 @@
         <item slot="7" material="golden apple" amount="1"/>
         <item slot="8" material="golden carrot" amount="64"/>
         <item slot="28" material="arrow" amount="1"/>
+        <leggings material="iron leggings" unbreakable="true"/>
         <effect duration="oo" amplifier="1">night_vision</effect>
     </kit>
     <kit id="purple-kit" parents="spawn-kit">
@@ -63,19 +64,87 @@
     <kit id="obs">
         <effect duration="oo" amplifier="1">night_vision</effect>
     </kit>
+    <kit id="upgraded-purple">
+        <clear/>
+        <item slot="0" material="iron sword" unbreakable="true"/>
+        <item slot="1" material="bow"> 
+            <enchantment level="1">infinity</enchantment>
+        </item>
+        <item slot="2" material="iron pickaxe" unbreakable="true">
+            <enchantment level="1">efficiency</enchantment>
+        </item>
+        <item slot="3" material="iron axe" unbreakable="true">
+        </item>
+        <item slot="4" material="water_bucket" amount="1"/>
+        <item slot="7" material="golden apple" amount="1"/>
+        <item slot="8" material="golden carrot" amount="64"/>
+        <item slot="28" material="arrow" amount="1"/>
+        <item slot="5" material="stained_clay" damage="3" amount="64"/>
+        <item slot="32" material="stained_clay" damage="3" amount="64"/>
+        <item slot="23" material="stained_clay" damage="3" amount="64"/>
+        <item slot="6" material="stained_glass" damage="3" amount="64"/>
+        <effect duration="oo" amplifier="1">night_vision</effect>
+        <helmet material="chainmail helmet" unbreakable="true">
+            <enchantment level="1">projectile_protection</enchantment>
+        </helmet>
+        <chestplate material="leather chestplate" color="7F3FB2" unbreakable="true">
+            <enchantment level="2">projectile_protection</enchantment>
+        </chestplate>
+        <leggings material="iron leggings" unbreakable="true">
+            <enchantment level="1">projectile_protection</enchantment>
+        </leggings>
+        <boots material="leather boots" color="7F3FB2" unbreakable="true">
+            <enchantment level="1">projectile_protection</enchantment>
+            <enchantment level="1">feather_falling</enchantment>
+        </boots>
+    </kit>
+    <kit id="upgraded-blue">
+        <clear/>
+        <item slot="0" material="iron sword" unbreakable="true"/>
+        <item slot="1" material="bow"> 
+            <enchantment level="1">infinity</enchantment>
+        </item>
+        <item slot="2" material="iron pickaxe" unbreakable="true">
+            <enchantment level="1">efficiency</enchantment>
+        </item>
+        <item slot="3" material="iron axe" unbreakable="true">
+        </item>
+        <item slot="4" material="water_bucket" amount="1"/>
+        <item slot="7" material="golden apple" amount="1"/>
+        <item slot="8" material="golden carrot" amount="64"/>
+        <item slot="28" material="arrow" amount="1"/>
+        <item slot="5" material="stained_clay" damage="3" amount="64"/>
+        <item slot="32" material="stained_clay" damage="3" amount="64"/>
+        <item slot="23" material="stained_clay" damage="3" amount="64"/>
+        <item slot="6" material="stained_glass" damage="3" amount="64"/>
+        <effect duration="oo" amplifier="1">night_vision</effect>
+        <helmet material="chainmail helmet" unbreakable="true">
+            <enchantment level="1">projectile_protection</enchantment>
+        </helmet>
+        <chestplate material="leather chestplate" color="6699D8" unbreakable="true">
+            <enchantment level="2">projectile_protection</enchantment>
+        </chestplate>
+        <leggings material="iron leggings" unbreakable="true">
+            <enchantment level="1">projectile_protection</enchantment>
+        </leggings>
+        <boots material="leather boots" color="6699D8" unbreakable="true">
+            <enchantment level="1">projectile_protection</enchantment>
+            <enchantment level="1">feather_falling</enchantment>
+        </boots>
+    </kit>
 </kits>
 <spawns>
-    <spawn team="purple-team" kit="purple-kit" yaw="@0">
+    <spawn team="purple-team" kit="purple-kit" yaw="0">
         <region>
             <cylinder base="48.5,9,-187.5" radius="0.5" height="0"/>
         </region>
     </spawn>
-    <spawn team="blue-team" kit="blue-kit" yaw="@180">
+    <spawn team="blue-team" kit="blue-kit" yaw="180">
         <region>
             <cylinder base="-47.5,9,188.5" radius="0.5" height="0"/>
         </region>
     </spawn>
-    <default yaw="@90" kit="obs">
+    <default yaw="90" kit="obs">
         <region>
             <cylinder base="91.5,48,1.5" radius="1" height="0"/>
         </region>
@@ -104,8 +173,8 @@
 <control-points incremental="true" show-progress="true" required="false">
     <control-point id="centre-hub" name="Centre Hub" capture-time="25s">
         <capture><cylinder base="0.5,6,0.5" radius="7" height="5"/></capture>
-        <progress><rectangle min="-11,12" max="12,-11"/></progress>
-        <captured><rectangle min="-11,12" max="12,-11"/></captured>
+        <progress><cuboid min="-11,6,12" max="12,70,-11"/></progress>
+        <captured><cuboid min="-11,6,12" max="12,70,-11"/></captured>
     </control-point>
 </control-points>
 <filters>
@@ -125,10 +194,10 @@
     <material id="only-iron">iron block</material>
     <material id="only-air">air</material>
     <all id="only-renewable">
-        <material>iron block</material>  
+        <material>iron block</material>
         <not>
             <cause>player</cause>
-        </not>
+        </not>  
     </all>
     <all id="purple-capture">
         <objective>centre-hub</objective>
@@ -159,19 +228,21 @@
     </union>
     <union id="upgrade-portal-region">
         <cuboid id="blue-upgrade" min="-52,7,189" max="-56,14,184"/> <!-- blue's side -->
-        <cuboid id="purple-upgrade" min="52,7,-188" max="57,14,-183"/> <!-- purple's side -->
+        <cuboid id="purple-upgrade" min="53,7,-188" max="55,14,-183"/> <!-- purple's side -->
     </union>
     <rectangle id="capture-region" min="-11,12" max="12,-11"/>
     <union id="kit-region">
-        <cuboid id="kit-region-blue" min="-54,8,188" max="-55,12,185"/>
-        <cuboid id="kit-region-purple" min="55,8,-187" max="56,12,-184"/>
+        <cuboid id="kit-region-blue" min="-53,8,188" max="-55,12,185"/>
+        <cuboid id="kit-region-purple" min="54,8,-187" max="56,12,-184"/>
     </union>
     <union id="shop-region">
         <cuboid min="20,7,47" max="17,8,50"/>
         <cuboid min="-19,7,-46" max="-16,8,-49"/>
     </union>
-    <cylinder id="cp" base="0.5,6,0.5" radius="7" height="3"/>
+    <cylinder id="cp" base="0.5,6,0.5" radius="8" height="5"/>
     <!-- applicators -->
+    <apply block-place="only-renewable" region="spawns" message="You can only break iron in spawn!"/>
+    <apply block-break="only-iron" region="spawns" message="You cannot place blocks in spawn!"/>
     <apply enter="only-purple" region="purple-spawn" message="You cannot enter `5Purple's `Cspawn!"/>
     <apply enter="only-blue" region="blue-spawn" message="You cannot enter `9Blue's `Cspawn!"/>    
     <apply enter="purple-capture" region="purple-upgrade" message="You need to capture the `6Centre Hub `Cto gain upgrades!"/>
@@ -183,15 +254,16 @@
     <apply block-break="purple-woolroom-filter" region="purples-woolrooms" message="You can only break cobwebs in the woolrooms!"/>
     <apply block-break="blue-woolroom-filter" region="blues-woolrooms" message="You can only break cobwebs in the woolrooms!"/>
     <apply block-break="never" region="shop-region" message="Why are you spleefing the shopkeeper? Rude"/>
-    <apply block-break="never" region="capture-region" message="You cannot break blocks at the `6Centre Hub`C!"/>
-    <apply block-place="never" region="cp" message="You cannot place blocks at the capture region!"/>
-    <apply kit="upgraded" region="kit-region"/>
+    <apply block="never" region="capture-region" message="You cannot edit or place blocks at the `6Centre Hub`C!"/>
+    <apply kit="upgraded-purple" region="kit-region-purple"/>
+    <apply kit="upgraded-blue" region="kit-region-blue"/>
 </regions>
 <portals>
     <!-- blues spawn portals -->
     <portal yaw="@180">
         <region>
-            <cuboid id="kit-region-blue"/></region>
+            <cuboid min="-54,8,188" max="-55,12,185"/>
+        </region>
         <destination>    
             <point>-47.5,9,181.5</point>
         </destination>
@@ -284,7 +356,8 @@
     <!-- purples spawn portals -->
     <portal yaw="@0">
         <region>
-            <cuboid id="kit-region-purple"/></region>
+            <cuboid min="55,8,-187" max="56,12,-184"/>
+        </region>
         <destination>    
             <point>48.5,9,-180.5</point>
         </destination>
@@ -362,7 +435,7 @@
     </portal>
     <portal yaw="@180">
         <region>
-            <cuboid min="-42,9,-105" max="-40,9,-106"/></region>
+            <cuboid min="-42,9,-105" max="-40,11,-106"/></region>
         <destination>    
             <cuboid min="-42,19,-105" max="-40,19,-106"/>
         </destination>
@@ -379,14 +452,16 @@
     <renewable interval="5" sound="true" particles="true" region="everywhere" renew-filter="only-iron" replace-filter="only-air" avoid-players="2"/>
 </renewables> 
 <block-drops>
-    <rule>
-        <region id="spawns"/>
+    <rule wrong-tool="true">
         <filter>
-            <material>iron block</material>
+            <any>
+                <material>iron block</material>
+            </any>
         </filter>
         <drops>
-            <item material="iron_chestplate"/>
-            <item material="iron_boots"/>
+            <item material="iron chestplate"/>
+            <item material="iron boots"/>
+            <item material="iron helmet"/>
         </drops>
     </rule>
 </block-drops>
